@@ -35,7 +35,8 @@ git pull origin master //Enter this command AFTER `git clone` to retrieve and sy
 
 #### Commiting Changes 
 ```
-git commit -m "[message]" //commit changes and pushes to repository
+git commit -m "[message]" //commit changes to local git repository (not github)
+git push //pushes changes to this github repository. You must pull all changes before being able to push anything
 ```
 
 #### Retrieving Changes 
