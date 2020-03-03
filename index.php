@@ -7,4 +7,8 @@ if(isset($_SESSION['signedin'])){
     header('location: auth/index.php');
 }
 
+
+
 ?>
+
+<p>d</p>
