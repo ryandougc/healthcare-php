@@ -1,6 +1,6 @@
 <?php
 define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'dev_ryan');
+define('DB_USERNAME', 'dev');
 define('DB_PASSWORD', 'healthcare');
 define('DB_NAME', 'healthcare-system');
 
