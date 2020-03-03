@@ -38,6 +38,11 @@ git pull origin master //Enter this command AFTER `git clone` to retrieve and sy
 git commit -m "[message]" //commit changes and pushes to repository
 ```
 
+#### Retrieving Changes 
+``` 
+git pull //enter this command in the root folder
+``` 
+
 #### Branch Management 
 ```
 git branch //shows which branch you are using 
