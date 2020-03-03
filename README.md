@@ -20,8 +20,7 @@ We **must** ensure dev is stable before sending it to master branch to prevent c
 ### Git Hub Commands
 
 
-#### Config Github global cre
-Typedentials on local machine 
+#### Config Github global credentials on local machine
 ``` 
 git config --global user.name "[github username]" 
 git config --global user.email "[github email]" 
@@ -45,6 +44,11 @@ git push //pushes changes to this github repository. You must pull all changes b
 ``` 
 git pull //enter this command in the root folder
 ``` 
+
+### Following Changes 
+``` 
+git log // lists version history for the current branch
+```
 
 #### Branch Management 
 ```
