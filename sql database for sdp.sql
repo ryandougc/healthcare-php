@@ -36,10 +36,10 @@ CREATE  TABLE ASSIGNMENT (
  	);
 
 /********************************************************************************/
-Create	Table COMPUTER	(
-	SerialNumber		Int				Not Null,
-	Make				Char(12)		Not Null,
-	Model				Char(24)		Not Null,
+Create	Table DOCTOR	(
+	doctorID        	VarChar(35)	    Not Null,
+	ClinicID			VarChar(35)		Not Null,
+	email				VarChar(35)		Not Null,
 	ProcessorType		Char(24)		Null,
 	ProcessorSpeed		Numeric(3,2)	Not Null,
 	MainMemory			Char(15)		Not Null,
@@ -47,7 +47,7 @@ Create	Table COMPUTER	(
 	Constraint			COMPUTER_PK		Primary Key	(SerialNumber)
 	);
 
-Create	Table COMPUTER_ASSIGNMENT (
+Create	Table STAFF (
 	SerialNumber		Int				Not Null,
 	EmployeeNumber		Int				Not Null,
 	DateAssigned		Date			Not Null,
