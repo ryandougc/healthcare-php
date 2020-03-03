@@ -20,7 +20,8 @@ We **must** ensure dev is stable before sending it to master branch to prevent c
 ### Git Hub Commands
 
 
-#### Config Github global credentials on local machine 
+#### Config Github global cre
+Typedentials on local machine 
 ``` 
 git config --global user.name "[github username]" 
 git config --global user.email "[github email]" 
@@ -35,12 +36,18 @@ git pull origin master //Enter this command AFTER `git clone` to retrieve and sy
 
 #### Commiting Changes 
 ```
-git commit -m "[message]" //commit changes and pushes to repository
+git add . //Stage your changes to be commited into local version control
+git commit -m "[message]" //commit changes to local git repository (not github)
+git push //pushes changes to this github repository. You must pull all changes before being able to push anything
 ```
+
+#### Retrieving Changes 
+``` 
+git pull //enter this command in the root folder
+``` 
 
 #### Branch Management 
 ```
 git branch //shows which branch you are using 
 git checkout [branch name] //switches to that branch
 ``` 
-
