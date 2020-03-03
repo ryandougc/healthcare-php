@@ -18,6 +18,10 @@ We **must** ensure dev is stable before sending it to master branch to prevent c
 
 ### Git Hub Commands
 
+We will manually update the master branch, so all commands will apply to the "dev" branch
+
+<br>
+
 #### Config Github global credentials on local machine
 
 `git config --global user.name` "[github username]" 
@@ -27,20 +31,22 @@ We **must** ensure dev is stable before sending it to master branch to prevent c
 #### Setup Github on local machine
  
 `git clone [URL]` //copies all the files over without needing authorization
-`git pull origin master` //Enter this command AFTER `git clone` to retrieve and synchronize changes
+`git pull origin dev` //Enter this command AFTER `git clone` to retrieve and synchronize changes
 
 
 #### Commiting Changes Process
 
 
-1. `git add .` //Stage your changes to be commited into local version control
+1. `git add [file name] ` // Add the **specified** file to a basket before commiting
+   ` git add .` // Adds all the files in your current directory to the basket
 2. `git commit -m "[message]"` //commit changes to local git repository (not github)
-3. `git push origin [branch]` //pushes changes to this github repository. You must pull all changes before being able to push anything. 
+3. `git push origin dev` //pushes the basket full of changes to this github repository. (Note: You must pull all changes before being able to push anything)
 
 
 #### Retrieving Changes 
 
-`git pull` //enter this command in the root folder 
+
+`git pull origin dev` //enter this command in the root folder 
 
 #### Following Changes 
  
@@ -49,6 +55,6 @@ We **must** ensure dev is stable before sending it to master branch to prevent c
 
 #### Branch Management 
 
+`git status` //shows which branch you are on and tracks `git add` 
 `git branch` //shows which branch you are on
 `git checkout [branch name]` //change your directory to that branch.
- 
