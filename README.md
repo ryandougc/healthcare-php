@@ -43,18 +43,17 @@ We will manually update the master branch, so all commands will apply to the "de
 3. `git push origin dev` //pushes the basket full of changes to this github repository. (Note: You must pull all changes before being able to push anything)
 
 
-#### Retrieving Changes 
+#### Retrieving Changes
 
+`git pull origin dev` //enter this command in the root folder
 
-`git pull origin dev` //enter this command in the root folder 
-
-#### Following Changes 
+#### Following Changes
  
 `git log` // lists version history for the current branch. `git commit` messages are displayed clearly here
 
 
 #### Branch Management 
 
-`git status` //shows which branch you are on and tracks `git add` 
+`git status` //shows which branch you are on and tracks `git add`
 `git branch` //shows which branch you are on
-`git checkout [branch name]` //change your directory to that branch.
+`git checkout [branch name]` //changes and updates your working directory to that branch
