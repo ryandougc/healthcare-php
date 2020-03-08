@@ -7,13 +7,11 @@ if(isset($_SESSION['signedin'])){
     header('location: auth/index.php');
 }
 
-<<<<<<< HEAD
 ?>
 <p>hrello</p>
-=======
+$str = <<<EOD
+The customers name is HarveerDeol
+and they live at 8428 street
+EOD;
 
-
-?>
-
-<p>d</p>
->>>>>>> 1e62b550dc75b7eb78a54b9f17258a8a9edefe21
+echo $str;
