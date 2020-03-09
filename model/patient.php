@@ -10,5 +10,3 @@ function createPatient($username, $hashed_pass){
     $statement->execute();
     $statement->closeCursor();
 }
-
-?>

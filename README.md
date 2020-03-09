@@ -1,46 +1,43 @@
 # Healthcare-php
 
+### XAMPP
 
+- Apache2
+- MariaDB (Mysql)
 
-## Github 
+#### Note
 
-### Version control
+- **/htdocs** inside the xampp installation directory is where all your files will need to be copied into in order to run the web application start. (I'm working on having it point to my heathcare-php work directory instead)
 
-Please commit changes to the "dev" branch for testing and screwing up only.
-We **must** ensure dev is stable before sending it to master branch to prevent complete loss of code and other problems.
+<br>
 
-### Setting up Github
-1. Generate ssh keys `ssh-keygen -t rsa -D 4096 -C "[email account]"`
-2. Add **public** ssh key to Github account
-3. Install Github
-4. Add Github credentials to local machine 
-5. Setup github on local machine 
+### MVC (Model View Controller) web architecture
 
+<dl>
+   <dt>Model</dt>
+   <dd>Handles all the data</dd>
+   <dt>View</dt>
+   <dd>Handles the user interface</dd>
+   <dt>Controller</dt>
+   <dd>Handles the interaction between client and model (e.g getMethod() sendMethod())</dd>
+</dl>
 
-### Git Hub Commands
+*MVC is a way break up procedural style coding and require OOP for interaction* 
 
+<br>
 
-#### Config Github global credentials on local machine 
-``` 
-git config --global user.name "[github username]" 
-git config --global user.email "[github email]" 
-``` 
+### Examples of MVC and explained more in-depth program (Work in progress)
 
-#### Setup Github on local machine
+MVC explanation and reference
+<https://www.sitepoint.com/the-mvc-pattern-and-php-1/>
 
-``` 
-git clone [URL] //copies all the files over without needing authorization
-git pull origin master //Enter this command AFTER `git clone` to retrieve and synchronize changes
-```
+MVC framework
+<https://www.guru99.com/php-mvc-frameworks.html>
 
-#### Commiting Changes 
-```
-git commit -m "[message]" //commit changes and pushes to repository
-```
+<br>
 
-#### Branch Management 
-```
-git branch //shows which branch you are using 
-git checkout [branch name] //switches to that branch
-``` 
+### PHP facts and knowledge (Work in progress)
 
+- You can print "html" code and the browser will interpret it.
+
+<br>
