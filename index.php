@@ -9,9 +9,5 @@ if(isset($_SESSION['signedin'])){
 
 ?>
 <p>hrello</p>
-$str = <<<EOD
-The customers name is HarveerDeol
-and they live at 8428 street
-EOD;
+<p> trying to push the file, hello</p>
 
-echo $str;
