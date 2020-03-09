@@ -8,5 +8,3 @@ class doctorController{
             $this->model = $model;
         }
 }
-
-?>
