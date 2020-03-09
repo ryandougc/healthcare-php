@@ -1,6 +1,6 @@
 /*CREATE DATABASE healthcare_system
 USE healthcare_system
-
+hi
 #Use this if updating tables
 DROP TABLE CLINIC
 DROP TABLE ACCOUNT
