@@ -4,7 +4,7 @@ class Database {
     private $host = "localhost";
     private $user = "dev";
     private $pwd = "healthcare";
-    private $dbName = "healthcare-system";
+    private $dbName = "healthcare_system";
 
     protected function connect() {
             $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbName;

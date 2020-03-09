@@ -1,3 +1,6 @@
+CREATE DATABASE healthcare_system;
+USE healthcare_system;
+
 CREATE  TABLE CLINIC(
     ClinicID            VarChar(36)     NOT NULL,
     ClinicAddress       VarChar(30)     NOT NULL,
