@@ -39,3 +39,5 @@ MVC framework
 ### PHP facts and knowledge (Work in progress)
 
 - You can print "html" code and the browser will interpret it.
+
+<br>
