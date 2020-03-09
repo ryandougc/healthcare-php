@@ -17,7 +17,3 @@ class doctorModel extends Database{
 
     
 }
-
-
-
-?>
