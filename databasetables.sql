@@ -18,7 +18,7 @@ CREATE  TABLE CLINIC(
     CONSTRAINT          CLINIC_PK       PRIMARY KEY(ClinicID)
     );
 
-CREATE  TABLE ACCOUNT
+CREATE  TABLE ACCOUNT(
     AccountID           VarChar(36)     NOT NULL,
     LoginID             VarChar(36)     NULL,
     AccountPassword     VarChar(255)    NULL,
@@ -41,7 +41,7 @@ CREATE  TABLE DOCTOR (
     CONSTRAINT          DOC_CLINIC_FK   FOREIGN KEY (ClinicID)
                             REFERENCES CLINIC (ClinicID)
                                 ON UPDATE NO ACTION
-                                ON UPDATE NO ACTION
+                                ON DELETE NO ACTION
     );
 
 CREATE  TABLE STAFF (
