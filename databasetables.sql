@@ -81,7 +81,7 @@ CREATE  TABLE VISIT (
     Prescription        VarChar(255)    NOT NULL,
     DoctorNotes         VarChar(255)    NOT NULL,
     SuggestedExam       VarChar(100)    NOT NULL,
-    CONSTRAINT          VIST_PK         PRIMARY KEY (VisitID),
+    CONSTRAINT          VISIT_PK         PRIMARY KEY (VisitID),
     CONSTRAINT          VISIT_CLINIC_FK FOREIGN KEY (ClinicID)
                             REFERENCES CLINIC (ClinicID)
                                 ON UPDATE NO ACTION
