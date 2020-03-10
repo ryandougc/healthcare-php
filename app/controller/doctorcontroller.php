@@ -1,6 +1,6 @@
 <?php 
 
-class doctorController{
+class DoctorController{
 
     private $model;
     

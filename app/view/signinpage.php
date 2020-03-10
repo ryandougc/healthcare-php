@@ -1,13 +1,15 @@
 <?php
 
-include 'includes/class-autoload.inc.php';
+include '../model/database.class.php';
+include '../model/account.class.php';
+include '../controller/accountcontroller.php';
 
 if(isset($_POST['submit'])) { 
-    $username = filter_input(INPUT_POST, 'username');
+    $loginid = filter_input(INPUT_POST, 'username');
     $pword = filter_input(INPUT_POST, 'password');
-echo "works";
-    $loginTest = new DoctorContr();
-    $loginTest->login($username, $pword);
+
+    $loginTest = new AccountController();
+    $loginTest->login($loginid, $pword);
 }
 
 ?>
