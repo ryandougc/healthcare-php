@@ -1,5 +1,5 @@
-/*CREATE DATABASE healthcare_system
-USE healthcare_system
+/*CREATE DATABASE healthcare_system;
+USE healthcare_system;
 
 #Use this if updating tables
 DROP TABLE CLINIC
