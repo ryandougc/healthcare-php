@@ -14,7 +14,7 @@
 
 #### Note
 
-- **/htdocs** inside the xampp installation directory is where all your files will need to be copied into in order to run the web application start. (I'm working on having it point to my heathcare-php work directory instead)
+- **/htdocs** inside the xampp installation directory is where all your files will need to be copied into in order to run the web application start. (I'm working on having it point to my healthcare-php work directory instead)
 
 <br>
 
