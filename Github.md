@@ -39,7 +39,8 @@ We will manually update the master branch, so all commands will apply to the "de
 
 1. Save the files you have edited
 2. `git add [file name]` // Add the **specified** file to a basket before commiting
-3. `git add .` // Adds all the files in your current directory to the basket
+3. `git add [folder name]` //Addes all files inside folder
+3. `git add .` // Adds all the files in your current working directory/branch to the basket. **NOTE** merge conflicts will happen if multiple people modify the same file
 4. `git commit -m "[message]"` // Commit changes to local git repository (not github)
 5. `git push` //pushes the basket full of changes to this github repository. (Note: You must pull all changes before being able to push anything)
 

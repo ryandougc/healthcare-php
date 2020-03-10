@@ -26,12 +26,17 @@ Class testModel {
 
                 try{    
                         //Change port number to 3306 before executing
+                        //Make sure that 'dev' is in your "priviledged" settings in phpmyadmin
                         $pdo = new PDO('mysql:localhost;port=3307;dbname=healthcare_system', 'dev', 'healthcare');
+
+                        //Use phpmyadmin to test valid sql before putting it here
+                        //$stmt is just a variable for statement 
                         $stmt = $pdo->prepare("INSERT INTO PATIENT (PatientID, PatientEmail, PatientPhone, PatientAddress, EmailNotifications) 
                                                 VALUES (:ID, :Email, :Phone, :Adr , :Notif) ");
 
 
                         //PDO::PARAM does automatic sanitization 
+                        //Watch out how you handle your variable declaration when you instatiate a object
                         $stmt->bindParam(':ID', $this->PatientID, PDO::PARAM_INT); 
                         $stmt->bindParam(':Email', $this->PatientEmail, PDO::PARAM_STR);
                         $stmt->bindParam(':Phone', $this->PatientPhone, PDO::PARAM_STR);
