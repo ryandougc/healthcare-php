@@ -1,5 +1,7 @@
 <?php
 
+include 'includes/class-autoload.inc.php';
+
 session_start();
 
 if(isset($_SESSION['signedin'])){
