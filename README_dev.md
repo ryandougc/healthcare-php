@@ -33,18 +33,19 @@
 
 <br>
 
-### Examples of MVC and explained more in-depth program (Work in progress)
-
-MVC explanation and reference
-<https://www.sitepoint.com/the-mvc-pattern-and-php-1/>
-
-MVC framework
-<https://www.guru99.com/php-mvc-frameworks.html>
-
-<br>
-
 ### PHP facts and knowledge (Work in progress)
 
 - You can print "html" code and the browser will interpret it.
 
 <br>
+
+#### Resources
+
+<dl>
+   <dt>htaccess</dt>
+   <https://www.whoishostingthis.com/resources/htaccess/>
+   <dt>PHP the proper way</dt>
+   <https://phptherightway.com/>
+
+</dl>
+

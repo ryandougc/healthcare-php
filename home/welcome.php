@@ -1,10 +1,15 @@
 <?php 
-include '../view/header.php'; 
+
+$header = include '../view/header.php'; 
+echo $header;
+
 session_start();
-?>
 
-<h1>Welcome <?php echo $_SESSION['loginid'] ?>!</h1>
+$session = $_SESSION['login']; 
 
- <a class="nav-link" href="../auth/signout.php">Sign Out</a>
+echo "<h1>Welcome ". $session . "!</h1>";
+echo "<a class='nav-link href='../auth/signout.php'>Sign Out</a>";
 
-<?php include '../view/footer.php'; ?>
+
+$footer = include '../view/footer.php'; 
+echo $footer;
