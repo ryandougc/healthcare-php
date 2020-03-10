@@ -43,9 +43,11 @@
 
 <dl>
    <dt>htaccess</dt>
-   <https://www.whoishostingthis.com/resources/htaccess/>
+   <dd><https://www.whoishostingthis.com/resources/htaccess/></dd>
    <dt>PHP the proper way</dt>
-   <https://phptherightway.com/>
+   <dd><https://phptherightway.com/></dd>
+   <dt>Sanitizaing with PHP</dt>
+   <dd><https://www.php.net/filter.filters.sanitize></dd>
 
 </dl>
 
