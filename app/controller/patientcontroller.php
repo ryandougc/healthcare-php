@@ -20,23 +20,26 @@ class PatientController extends Patient{
         $postCode,
         $emailNoti
     ){
-        //Generate GUID for patient
-        $accountId = $this->generateGUID();
-
-        //Set the account type to 'patient'
-        $accountType = "Patient";
-
         //Check if user already exists
         if($this->getLoginDetails($loginid)){
             header('location: ?message=userExists');
             exit();
         }
 
+        //Generate GUID for patient
+        $accountId = $this->generateGUID();
+
+        //Set the account type to 'patient'
+        $accountType = "Patient";
+
+        //Hash the password
+        $hashed_pass = password_hash($pword, PASSWORD_DEFAULT);
+
         //Create the account
         $this->createAccount(
             $accountId,
             $loginid,
-            $pword,
+            $hashed_pass,
             $firstName,
             $lastName,
             $accountType
