@@ -1,13 +1,6 @@
 <?php
 
-include "../test/testModel.php";
-
-
-//Another possible way of handling PDO
-//$database = 'mysql:localhost;port=3307;dbname=healthcare_system';
-//$usr = 'dev';
-//$pass = 'healthcare';
-//$pdo = new PDO($database,$user,$pass);
+//include "../test/testModel.php";
 
 
 /*
@@ -16,10 +9,22 @@ Reminder
 '12' is a string 
 do all variable type declaration here
 */
-$model = new testModel(12,'pEmail@email.com', '69420', 'NotVancouver', true);
 
 
-$model->addPatientInfo();
+//grab info from html fields
+$id = 12; 
+$email = 'Email@email.com'; 
+$phone = 'phone'; 
+$city = 'NotVancouver'; 
+$emailNotification = true; 
+
+
+//through into array
+$inputArr = array($id, $email, $phone, $city, $emailNotification); 
+
+//through array into method
+
+$model->addPatientInfo($input);
 //$model->addPatientInfo($pdo);
 
 

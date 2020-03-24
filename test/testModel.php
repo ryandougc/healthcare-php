@@ -1,47 +1,30 @@
 <?php
 
+include "../app/model/database.class.php";
 
 Class testModel {
 
-    public $PatientID;
-    public $PatientEmail;
-    public $PatientPhone;
-    public $PatientAddress;
-    public $EmailNotifications;
+    public $Array; 
 
+    public function addPatientInfo($inputArray) {
 
-    public function __construct($pID, $pEmail, $pPhone, $pAdr, $pBoolean) {
+        $database = new Database();
 
-        $this->PatientID = $pID;
-        $this->PatientEmail = $pEmail;
-        $this->PatientPhone = $pPhone;
-        $this->PatientAddress = $pAdr;
-        $this->EmailNotifications = $pBoolean;
-    
-        
-    }
-
-
-    public function addPatientInfo() {
+        $this->Array = $inputArray;
 
                 try{    
-                        //Change port number to 3306 before executing
-                        //Make sure that 'dev' is in your "priviledged" settings in phpmyadmin
-                        $pdo = new PDO('mysql:localhost;port=3307;dbname=healthcare_system', 'dev', 'healthcare');
+                        
+                        $sql = "INSERT INTO PATIENT (PatientID, PatientEmail, PatientPhone, PatientAddress, EmailNotifications) 
+                                VALUES (:ID, :Email, :Phone, :Adr , :Notif) ";
 
-                        //Use phpmyadmin to test valid sql before putting it here
-                        //$stmt is just a variable for statement 
-                        $stmt = $pdo->prepare("INSERT INTO PATIENT (PatientID, PatientEmail, PatientPhone, PatientAddress, EmailNotifications) 
-                                                VALUES (:ID, :Email, :Phone, :Adr , :Notif) ");
+                        
+                        $stmt = $this->connect()->prepare($sql);
 
-
-                        //PDO::PARAM does automatic sanitization 
-                        //Watch out how you handle your variable declaration when you instatiate a object
-                        $stmt->bindParam(':ID', $this->PatientID, PDO::PARAM_INT); 
-                        $stmt->bindParam(':Email', $this->PatientEmail, PDO::PARAM_STR);
-                        $stmt->bindParam(':Phone', $this->PatientPhone, PDO::PARAM_STR);
-                        $stmt->bindParam(':Adr', $this->PatientAddress, PDO::PARAM_STR);
-                        $stmt->bindParam(':Notif', $this->EmailNotifications, PDO::PARAM_BOOL);
+                        $stmt->bindParam(':ID', $this->inputArray[0], PDO::PARAM_INT); 
+                        $stmt->bindParam(':Email', $this->inputArray[1], PDO::PARAM_STR);
+                        $stmt->bindParam(':Phone', $this->inputArray[2], PDO::PARAM_STR);
+                        $stmt->bindParam(':Adr', $this->inputArray[3], PDO::PARAM_STR);
+                        $stmt->bindParam(':Notif', $this->inputArray[4], PDO::PARAM_BOOL);
                         $stmt->execute();
 
                         echo "statement executed";
