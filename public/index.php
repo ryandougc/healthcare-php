@@ -70,9 +70,9 @@ if(isset($_SESSION['signedin'])){
 
 ?>
 <body>
-    <a href="../app/view/signinpage.php">
+    <a href="app/view/signinpage.php">
         <button>Sign In</button>
-    <a href="../app/view/signuppage.php">
+    <a href="app/view/signuppage.php">
         <button>Sign Up</button>
 </body>
 </html> 

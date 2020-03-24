@@ -1,6 +1,32 @@
 <?php
 
 class AccountController extends Account{
+    // private $accountId;
+    // private $loginid;
+    // private $pword;
+    // private $pwordMatch;
+    // private $firstName;
+    // private $lastName;
+    // private $accountType;
+
+    // public function __controller(
+    //     $accountId,
+    //     $loginid,
+    //     $pword,
+    //     $pwordMatch,
+    //     $firstName,
+    //     $lastName,
+    //     $accountType
+    // ){
+    //     $this->accountId = $accountId;
+    //     $this->loginid = filter_var($loginid, FILTER_SANITIZE_STRING); //Change to filter email
+    //     $this->pword = filter_var($pword, FILTER_SANITIZE_STRING);
+    //     $this->pwordMatch = filter_var($pwordMatch, FILTER_SANITIZE_STRING);
+    //     $this->firstName = filter_var($firstName, FILTER_SANITIZE_STRING);
+    //     $this->loglastNameinid = filter_var($lastName, FILTER_SANITIZE_STRING);
+    //     $this->accountType = $accountType;
+    // }
+
     public function login($loginid, $pword) {
         //Filter Inputs again
         $loginid = filter_var($loginid, FILTER_SANITIZE_STRING);
@@ -36,13 +62,27 @@ class AccountController extends Account{
         header('location: ../../public/');
     }
 
-    public function GUID() {
-        if (function_exists('com_create_guid') === true)
-        {
-            return trim(com_create_guid(), '{}');
-        }
+    public function createAnyAccount(  
+        $loginid,
+        $pword,
+        $firstName,
+        $lastName,
+        $accountType
+    ) {
+        //Generate GUID for account
+        $accountId = $this->generateGUID();
 
-        return sprintf('%04X%04X-%04X-%04X-%04X-%04X%04X%04X', mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(16384, 20479), mt_rand(32768, 49151), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535));
+        //Create the patient account
+        $hashed_pass = password_hash($pword, PASSWORD_DEFAULT);
+        
+        $this->createAccount(
+            $accountId,
+            $loginid,
+            $pword,
+            $firstName,
+            $lastName,
+            $accountType
+        );
     }
 }
 

@@ -1,23 +1,59 @@
 <?php
 
-class PatientController extends Account{
-    public function signup($loginid, $pword){
-        //Filter Inputs again
-        $loginid = filter_var($loginid, FILTER_SANITIZE_STRING);
-        $pword = filter_var($pword, FILTER_SANITIZE_STRING);
+class PatientController extends Patient{
+    public function passwordMatch(){
+        if($this->pword != $this->pwordMatch){
+            header('location ?message=passwordMatchError');
+            exit();
+        }
+    } 
 
-        //check if user already exists
+    public function patientSignUp(
+        $loginid,
+        $pword,
+        $pwordMatch,
+        $firstName,
+        $lastName,
+        $phoneNum,
+        $address,
+        $city,
+        $postCode,
+        $emailNoti
+    ){
+        //Generate GUID for patient
+        $accountId = $this->generateGUID();
+
+        //Set the account type to 'patient'
+        $accountType = "Patient";
+
+        //Check if user already exists
         if($this->getLoginDetails($loginid)){
             header('location: ?message=userExists');
             exit();
         }
 
-        //Create the user
-        $hashed_pass = password_hash($pword, PASSWORD_DEFAULT);
-        $this->createAccount($loginid, $hashed_pass);
+        //Create the account
+        $this->createAccount(
+            $accountId,
+            $loginid,
+            $pword,
+            $firstName,
+            $lastName,
+            $accountType
+        );
+
+        //Create the patient profile
+        $this->createPatientProfile(
+            $accountId,
+            $loginid,
+            $phoneNum,
+            $address,
+            (bool) $emailNoti
+        );
 
         //On success, send the user the the second page of the registration
-        header('location: signinpage.php');
+        header('location: signinpage.php?message="userCreated');
         exit();
+
     }
 }

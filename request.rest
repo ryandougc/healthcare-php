@@ -1,0 +1,15 @@
+POST http://localhost/healthcare-php/app/view/signuppage.php
+content-type: application/json
+
+{
+    "loginid": "testemail@gmail.com",
+    "pword": "password",
+    "pwordMatch": "password",
+    "firstName": "test",
+    "lastName": "tester",
+    "phoneNum": "1234567890",
+    "address": "12345 my street",
+    "city": "surrey",
+    "postCode": "v3w 1g3",
+    "emailnotifications": true
+}
