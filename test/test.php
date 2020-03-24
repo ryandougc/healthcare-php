@@ -4,10 +4,10 @@ include "../test/testModel.php";
 
 
 //Another possible way of handling PDO
-$database = 'mysql:localhost;port=3307;dbname=healthcare_system';
-$usr = 'dev';
-$pass = 'healthcare';
-$pdo = new PDO($database,$user,$pass);
+//$database = 'mysql:localhost;port=3307;dbname=healthcare_system';
+//$usr = 'dev';
+//$pass = 'healthcare';
+//$pdo = new PDO($database,$user,$pass);
 
 
 /*
