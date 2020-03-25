@@ -1,10 +1,36 @@
 <?php 
 
-class DoctorController{
+class doctorController{
 
-    private $model;
-    
-        public function __construct($model) {
-            $this->model = $model;
-        }
+    private $Array = []; 
+
+
+    public function getDoctorProfile($inputArray){
+
+        //recieve array of data
+        $this->Array = $inputArray; 
+
+        $docModel = new doctorModel();
+
+        //pass array to method
+        $docModel->getDoctorProfile($Array);
+
+        //send data to views
+        
+        
+
+    }
+
+    public function getOwnProfile(){
+
+        $docModel = new doctorModel();
+
+        $docModel->getOwnProfile(); 
+
+        echo $profile;
+
+
+    }
+
+   
 }
