@@ -35,6 +35,8 @@ if(isset($_GET['action']) && $_GET['action'] != ""){
 
 <h1>Welcome <?php echo $_SESSION['firstName'] . " " . $_SESSION['lastName']; ?></h1>
 
+<a href="viewPatientProfile.php">View your profile</a>
+<br/>
 <a href="editPatientProfile.php">Edit your profile</a>
 
 <?php include '../view/partials/footer.php'; ?>
