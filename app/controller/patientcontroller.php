@@ -58,4 +58,33 @@ class PatientController extends Patient{
 
         return $patient;
     }
+
+    public function updatePatientProfile(
+        $patientId,
+        $phoneNum,
+        $address,
+        $city,
+        $postCode,
+        $emailNoti
+    ){
+
+        //Make sure the the user exists
+        $patientExists = ($this->checkPatientExists($patientId));
+
+        if($patientExists == false){
+            header('location: ?message=patientNotFound');
+            exit();
+        }
+
+        //Update the users
+        $this->putPatientProfile(
+            $patientId,
+            $phoneNum,
+            $address,
+            $emailNoti
+        );
+
+        header('location: homepage.php');
+        exit();
+    }
 }

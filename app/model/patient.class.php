@@ -21,4 +21,25 @@ class Patient extends Account {
         $results = $stmt->fetch(); 
         return $results;
     }
+
+    protected function checkPatientExists($patientId) {
+        $sql = "SELECT PatientID FROM patient WHERE PatientID = ?";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$patientId]);
+
+        $results = $stmt->fetch(); 
+        return $results;
+    }
+
+    public function putPatientProfile($patientId, $phone, $address, $emailNotifications) {
+        try{
+            $sql = "UPDATE patient SET PatientPhone = ?, PatientAddress = ?, EmailNotifications = ? WHERE PatientID = ?";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute([$phone, $address, $emailNotifications, $patientId]);
+        }
+        catch(PDOException $e){
+            echo "Error in query 'createPatientProfile': " . $e->getMessage();
+            exit();
+        }
+    }
 }
