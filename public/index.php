@@ -12,4 +12,4 @@ if(isset($_SESSION['signedin'])){
 <a href="app/view/signuppage.php">
         <button>Sign Up</button>
 
-<?php include '../view/partials/footer.php'; ?>
+<?php include '../app/view/partials/footer.php'; ?>
