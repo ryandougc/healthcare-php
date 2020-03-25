@@ -1,3 +1,6 @@
+</head>
+<body>
+
 <?php
 include '../app/view/partials/header.php';
 /*session_start();
