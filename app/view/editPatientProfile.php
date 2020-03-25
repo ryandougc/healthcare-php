@@ -39,12 +39,12 @@ if(isset($_POST['submit'])) {
     }
 
     //Convert $emailNoti to a BOOLEAN value
-    if($emailNoti == "True"){
-        $emailNoti = True;
+    if($emailNoti == "1"){
+        $emailNoti = 1;
     }else {
-        $emailNoti = False;
+        $emailNoti = 0;
     }
-
+    
     $patientSignUp = new PatientController();
     $patientSignUp->updatePatientProfile(
         $_SESSION['accID'],
@@ -77,10 +77,10 @@ if(isset($_POST['submit'])) {
         <h4>Receive Email Notifications?</h4>
 
         <label for="emailNotifNoRadio">No</label>
-        <input id="emailNotifNoRadio" type="radio" name="emailNotifications"  value="0" <?php if($patientDetails['PatientAddress'] == false) {echo 'checked'; }?>>
+        <input id="emailNotifNoRadio" type="radio" name="emailNotifications"  value="0" <?php if($patientDetails['EmailNotifications'] == 0) {echo 'checked'; }?>>
 
         <label for="emailNotifYesRadio">Yes</label>
-        <input id="emailNotifYesRadio" type="radio" name="emailNotifications"  value="1" <?php if($patientDetails['PatientAddress'] == true) {echo 'checked'; }?>>
+        <input id="emailNotifYesRadio" type="radio" name="emailNotifications"  value="1" <?php if($patientDetails['EmailNotifications'] == 1) {echo 'checked'; }?>>
     </div>
   
     <button type="submit" name="submit">Update</button>

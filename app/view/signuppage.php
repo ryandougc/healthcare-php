@@ -44,10 +44,10 @@ if(isset($_POST['submit'])) {
     }
 
     //Convert $emailNoti to a BOOLEAN value
-    if($emailNoti == "True"){
-        $emailNoti = True;
+    if($emailNoti == "1"){
+        $emailNoti = 1;
     }else {
-        $emailNoti = False;
+        $emailNoti = 0;
     }
 
     $patientSignUp = new PatientController();

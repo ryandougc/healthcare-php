@@ -44,7 +44,7 @@ class PatientController extends Patient{
             $loginid,
             $phoneNum,
             $address,
-            (bool) $emailNoti
+            $emailNoti
         );
 
         //On success, send the user the the second page of the registration
