@@ -10,13 +10,14 @@ class AccountController extends Account{
             header('location: ?message=noAccount');
             exit();
         }else { 
+            //If the inputted password matches the saved pword, start a new session
             if(password_verify($pword, $account['AccountPassword'])){
-                //Start a session
+                //Start a session and assign variables
                 session_start();
-                //Assign session variables
                 $_SESSION['signedin'] = true;
                 $_SESSION['loginid'] = $account['LoginID'];
-                header('location: ../view/welcome.php');
+                
+                header('location: ../view/homepage.php');
                 exit();
             }else {
                 header('location: ?message=passwordIncorrect');

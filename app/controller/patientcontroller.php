@@ -1,13 +1,6 @@
 <?php
 
 class PatientController extends Patient{
-    public function passwordMatch(){
-        if($this->pword != $this->pwordMatch){
-            header('location ?message=passwordMatchError');
-            exit();
-        }
-    } 
-
     public function patientSignUp(
         $loginid,
         $pword,
