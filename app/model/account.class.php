@@ -2,7 +2,7 @@
 
 class Account extends Database{
     protected function getLoginDetails($loginid) {
-        $sql = "SELECT LoginID, AccountPassword FROM account WHERE LoginID = ?";
+        $sql = "SELECT * FROM account WHERE LoginID = ?";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$loginid]);
 

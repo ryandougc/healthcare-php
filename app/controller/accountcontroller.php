@@ -16,6 +16,10 @@ class AccountController extends Account{
                 session_start();
                 $_SESSION['signedin'] = true;
                 $_SESSION['loginid'] = $account['LoginID'];
+                $_SESSION['accID'] = $account['AccountID'];
+                $_SESSION['accType'] = $account['AccountType'];
+                $_SESSION['firstName'] = $account['FirstName'];
+                $_SESSION['lastName'] = $account['LastName'];
                 
                 header('location: ../view/homepage.php');
                 exit();
@@ -33,28 +37,6 @@ class AccountController extends Account{
         header('location: /healthcare-php/');
     }
 
-    public function createAnyAccount(  
-        $loginid,
-        $pword,
-        $firstName,
-        $lastName,
-        $accountType
-    ) {
-        //Generate GUID for account
-        $accountId = $this->generateGUID();
 
-        //Hash the password
-        $hashed_pass = password_hash($pword, PASSWORD_DEFAULT);
-
-        //Create the patient account
-        $this->createAccount(
-            $accountId,
-            $loginid,
-            $hashed_pass,
-            $firstName,
-            $lastName,
-            $accountType
-        );
-    }
 }
 

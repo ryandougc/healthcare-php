@@ -52,4 +52,10 @@ class PatientController extends Patient{
         exit();
 
     }
+
+    public function getPatientProfile($loginid){
+        $patient = $this->getProfile($loginid);
+
+        return $patient;
+    }
 }

@@ -65,7 +65,7 @@
 session_start();
 
 if(isset($_SESSION['signedin'])){
-    header('location: ../app/view/welcome.php');
+    header('location: ./app/view/homepage.php');
 }
 
 ?>

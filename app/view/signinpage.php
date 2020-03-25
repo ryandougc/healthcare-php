@@ -1,16 +1,16 @@
 <?php
 
-include '../model/database.class.php';
-include '../model/account.class.php';
-include '../controller/accountcontroller.php';
+    include '../model/database.class.php';
+    include '../model/account.class.php';
+    include '../controller/accountcontroller.php';
 
-if(isset($_POST['submit'])) { 
-    $loginid = filter_input(INPUT_POST, 'loginid');
-    $pword = filter_input(INPUT_POST, 'pword');
+    if(isset($_POST['submit'])) { 
+        $loginid = filter_input(INPUT_POST, 'loginid');
+        $pword = filter_input(INPUT_POST, 'pword');
 
-    $signIn = new AccountController();
-    $signIn->signin($loginid, $pword);
-}
+        $signIn = new AccountController();
+        $signIn->signin($loginid, $pword);
+    }
 
 ?>
 
