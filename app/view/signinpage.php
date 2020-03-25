@@ -1,3 +1,6 @@
+<link rel="stylesheet"  href="css/signin.css">
+</head>
+<body class="bodysignin">
 <?php
 
     include '../model/database.class.php';
@@ -16,15 +19,24 @@
 
 ?>
 
-<h2>Sign In</h2>
-<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-    <label for="usernameInput">Username</label>
-    <input id="usernameInput" type="text" name="loginid">
+<!--<header class="mb-4">
+    <h1>Healthcare</h1>
+</header>-->
 
-    <label for="passwordInput">Password</label>
-    <input id="passwordInput" type="password" name="pword">
+<form class="form-signin" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+  <h1 class="h3 mb-3 font-weight-normal">Sign in</h1>
 
-    <button type="submit" name="submit">Sign In</button>
+  <label for="usernameInput" class="sr-only">Username</label>
+  <input type="text" id="usernameInput" name="loginid" class="form-control" placeholder="Username" required autofocus>
+
+  <label for="passwordInput" class="sr-only">Password</label>
+  <input type="password" id="passwordInput" name="pword" class="form-control" placeholder="Password" required>
+  <!--<div class="checkbox mb-3">
+    <label>
+      <input type="checkbox" value="remember-me"> Remember me
+    </label>
+  </div>-->
+  <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Sign In</button>
 </form>
 
 <?php include '../view/partials/footer.php'; ?>

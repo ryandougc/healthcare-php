@@ -1,3 +1,6 @@
+</head>
+<body>
+
 <?php
 
 include '../model/database.class.php';

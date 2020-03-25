@@ -10,6 +10,3 @@
     <title>Healthcare System</title>
     <!--<link rel="stylesheet" href="style.css">-->
     
-
-</head>
-<body>

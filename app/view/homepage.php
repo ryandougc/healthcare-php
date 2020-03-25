@@ -1,3 +1,6 @@
+</head>
+<body>
+
 <?php 
 
 require('../includes/patientAccess.php');
