@@ -5,7 +5,6 @@ include '../view/partials/header.php';
 if(isset($_SESSION['signedin'])){
     header('location: ./app/view/homepage.php');
 }*/
-}
 ?>
 
 <a href="app/view/signinpage.php">
