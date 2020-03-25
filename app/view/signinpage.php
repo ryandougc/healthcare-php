@@ -4,6 +4,8 @@
     include '../model/account.class.php';
     include '../controller/accountcontroller.php';
 
+    include '../view/partials/header.php';
+
     if(isset($_POST['submit'])) { 
         $loginid = filter_input(INPUT_POST, 'loginid');
         $pword = filter_input(INPUT_POST, 'pword');
@@ -24,3 +26,5 @@
 
     <button type="submit" name="submit">Sign In</button>
 </form>
+
+<?php include '../view/partials/footer.php'; ?>
