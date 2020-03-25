@@ -1,5 +1,3 @@
-<link rel="stylesheet"  href="css/signin.css">
-</head>
 <body class="bodysignin">
 <?php
 
@@ -18,10 +16,6 @@
     }
 
 ?>
-
-<!--<header class="mb-4">
-    <h1>Healthcare</h1>
-</header>-->
 
 <form class="form-signin" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
   <h1 class="h3 mb-3 font-weight-normal">Sign in</h1>
