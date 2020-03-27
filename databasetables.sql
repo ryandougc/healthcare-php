@@ -99,3 +99,14 @@ CREATE  TABLE VISIT (
                                 ON UPDATE NO ACTION
                                 ON DELETE CASCADE
     );
+
+
+
+-- ALTER TABLES
+ALTER TABLE patient 
+ADD COLUMN PatientCity VarChar(50) NOT NULL, 
+ADD COLUMN PatientProvince VarChar(50) NOT NULL;
+
+ALTER TABLE clinic
+ADD COLUMN ClinicCity VarChar(50) NOT NULL, 
+ADD COLUMN ClinicProvince VarChar(50) NOT NULL;
