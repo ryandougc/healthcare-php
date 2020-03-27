@@ -14,6 +14,8 @@ DROP TABLE VISIT */
 CREATE  TABLE CLINIC(
     ClinicID            VarChar(36)     NOT NULL,
     ClinicAddress       VarChar(36)     NOT NULL,
+    ClinicCity          VarChar(50)     NOT NULL,
+    ClinicProvince      VarChar(36)     NOT NULL,
     ClinicPhone         VarChar(12)     NOT NULL,
     CONSTRAINT          CLINIC_PK       PRIMARY KEY(ClinicID)
     );
@@ -59,6 +61,8 @@ CREATE  TABLE PATIENT (
     PatientEmail        VarChar(36)     NOT NULL,
     PatientPhone        VarChar(15)     NOT NULL,
     PatientAddress      VarChar(36)     NOT NULL,
+    PatientCity         VarChar(50)     NOT NULL,
+    PatientProvince     VarChar(50)     NOT NULL,
     EmailNotifications  Boolean         NOT NULL,
     CONSTRAINT          PATIENT_PK      PRIMARY KEY (PatientID)
     );
