@@ -7,6 +7,12 @@
 
     include '../view/partials/header.php';
 
+    //Redirect if already signed in
+    session_start();
+    if(isset($_SESSION['signedin'])){
+      header('location: homepage.php');
+    }
+
     if(isset($_POST['submit'])) { 
         $loginid = filter_input(INPUT_POST, 'loginid');
         $pword = filter_input(INPUT_POST, 'pword');
@@ -18,6 +24,13 @@
 ?>
 
 <form class="form-signin" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+  <?php 
+      //Check for error message
+      if(isset($_GET['message'])){
+          echo '<p>' . $_GET['message'] . '</p>';
+      } 
+  ?>
+
   <h1 class="h3 mb-3 font-weight-normal">Sign in</h1>
 
   <label for="usernameInput" class="sr-only">Username</label>
