@@ -1,11 +1,11 @@
 <?php
 
 class Patient extends Account {
-    public function createPatientProfile($patientId, $email, $phone, $address, $emailNotifications) {
+    public function createPatientProfile($patientId, $email, $phone, $address, $city, $province, $postCode, $emailNotifications) {
         try{
-            $sql = "INSERT INTO patient(PatientID, PatientEmail, PatientPhone, PatientAddress, EmailNotifications) VALUES(?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO patient(PatientID, PatientEmail, PatientPhone, PatientAddress, PatientCity, PatientProvince, PatientPostCode, EmailNotifications) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
             $stmt = $this->connect()->prepare($sql);
-            $stmt->execute([$patientId, $email, $phone, $address, $emailNotifications]);
+            $stmt->execute([$patientId, $email, $phone, $address, $city, $province, $postCode, $emailNotifications]);
         }
         catch(PDOException $e){
             echo "Error in query 'createPatientProfile': " . $e->getMessage();
@@ -31,11 +31,19 @@ class Patient extends Account {
         return $results;
     }
 
-    public function putPatientProfile($patientId, $phone, $address, $emailNotifications) {
+    public function putPatientProfile($patientId, $phone, $address, $city, $province, $postCode, $emailNotifications) {
         try{
-            $sql = "UPDATE patient SET PatientPhone = ?, PatientAddress = ?, EmailNotifications = ? WHERE PatientID = ?";
+            $sql = "UPDATE patient 
+                    SET 
+                        PatientPhone = ?,
+                        PatientAddress = ?,
+                        PatientCity = ?,
+                        PatientProvince = ?,
+                        PatientPostCode = ?,
+                        EmailNotifications = ?
+                    WHERE PatientID = ?";
             $stmt = $this->connect()->prepare($sql);
-            $stmt->execute([$phone, $address, $emailNotifications, $patientId]);
+            $stmt->execute([$phone, $address, $city, $province, $postCode, $emailNotifications, $patientId]);
         }
         catch(PDOException $e){
             echo "Error in query 'createPatientProfile': " . $e->getMessage();

@@ -10,6 +10,7 @@ class PatientController extends Patient{
         $phoneNum,
         $address,
         $city,
+        $province,
         $postCode,
         $emailNoti
     ){
@@ -23,7 +24,7 @@ class PatientController extends Patient{
         $accountId = $this->generateGUID();
 
         //Set the account type to 'patient'
-        $accountType = "Patient";
+        $accountType = "Admin";
 
         //Hash the password
         $hashed_pass = password_hash($pword, PASSWORD_DEFAULT);
@@ -44,11 +45,14 @@ class PatientController extends Patient{
             $loginid,
             $phoneNum,
             $address,
+            $city,
+            $province,
+            $postCode,
             $emailNoti
         );
 
         //On success, send the user the the second page of the registration
-        header('location: signinpage.php?message="userCreated');
+        header('location: signinpage.php?message=userCreated');
         exit();
 
     }
@@ -64,6 +68,7 @@ class PatientController extends Patient{
         $phoneNum,
         $address,
         $city,
+        $province,
         $postCode,
         $emailNoti
     ){
@@ -81,6 +86,9 @@ class PatientController extends Patient{
             $patientId,
             $phoneNum,
             $address,
+            $city,
+            $province,
+            $postCode,
             $emailNoti
         );
 

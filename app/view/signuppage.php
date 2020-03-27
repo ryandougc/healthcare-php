@@ -17,6 +17,7 @@ if(isset($_POST['submit'])) {
     $phoneNum   = filter_input(INPUT_POST, 'phoneNum');
     $address    = filter_input(INPUT_POST, 'address');
     $city       = filter_input(INPUT_POST, 'city');
+    $province   = filter_input(INPUT_POST, 'province');
     $postCode   = filter_input(INPUT_POST, 'postCode');
     $emailNoti  = $_POST['emailNotifications'];
 
@@ -30,6 +31,7 @@ if(isset($_POST['submit'])) {
         || empty($phoneNum) 
         || empty($address) 
         || empty($city) 
+        || empty($province) 
         || empty($postCode)
     ){
         header('location: ?message=emptyField');
@@ -59,6 +61,7 @@ if(isset($_POST['submit'])) {
         $phoneNum,
         $address,
         $city,
+        $province,
         $postCode,
         $emailNoti
     );
@@ -93,6 +96,9 @@ if(isset($_POST['submit'])) {
 
     <label for="cityInput">City</label>
     <input id="cityInput" type="text" name="city">
+
+    <label for="provinceInput">Province</label>
+    <input id="provinceInput" type="text" name="province">
 
     <label for="postCodeInput">Postal Code</label>
     <input id="postCodeInput" type="text" name="postCode">

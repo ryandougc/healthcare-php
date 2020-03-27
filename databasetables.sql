@@ -16,6 +16,7 @@ CREATE  TABLE CLINIC(
     ClinicAddress       VarChar(36)     NOT NULL,
     ClinicCity          VarChar(50)     NOT NULL,
     ClinicProvince      VarChar(36)     NOT NULL,
+    ClinicPostCode      VarChar(10)     NOT NULL,
     ClinicPhone         VarChar(12)     NOT NULL,
     CONSTRAINT          CLINIC_PK       PRIMARY KEY(ClinicID)
     );
@@ -63,6 +64,7 @@ CREATE  TABLE PATIENT (
     PatientAddress      VarChar(36)     NOT NULL,
     PatientCity         VarChar(50)     NOT NULL,
     PatientProvince     VarChar(50)     NOT NULL,
+    PatientPostCode     VarChar(10)     NOT NULL,
     EmailNotifications  Boolean         NOT NULL,
     CONSTRAINT          PATIENT_PK      PRIMARY KEY (PatientID)
     );
@@ -104,9 +106,11 @@ CREATE  TABLE VISIT (
 
 -- ALTER TABLES
 ALTER TABLE patient 
-ADD COLUMN PatientCity VarChar(50) NOT NULL, 
-ADD COLUMN PatientProvince VarChar(50) NOT NULL;
+ADD COLUMN  PatientCity         VarChar(50) NOT NULL, 
+ADD COLUMN  PatientProvince     VarChar(50) NOT NULL,
+ADD COLUMN  PatientPostCode     VarChar(10) NOT NULL;
 
 ALTER TABLE clinic
-ADD COLUMN ClinicCity VarChar(50) NOT NULL, 
-ADD COLUMN ClinicProvince VarChar(50) NOT NULL;
+ADD COLUMN ClinicCity           VarChar(50) NOT NULL, 
+ADD COLUMN ClinicProvince       VarChar(50) NOT NULL,
+ADD COLUMN ClinicPostCode       VarChar(10) NOT NULL;
