@@ -114,3 +114,27 @@ ALTER TABLE clinic
 ADD COLUMN ClinicCity           VarChar(50) NOT NULL, 
 ADD COLUMN ClinicProvince       VarChar(50) NOT NULL,
 ADD COLUMN ClinicPostCode       VarChar(10) NOT NULL;
+
+-- Fake clinic data
+INSERT INTO clinic(
+    ClinicID,
+    ClinicAddress,
+    ClinicPhone,
+    ClinicCity,
+    ClinicProvince,
+    ClinicPostCode
+) VALUES (
+    '0aa2dad2-4dc2-4577-9855-12bf43b340ae',
+    '1180 Victoria Park Ave',
+    '416-495-4585',
+    'Toronto',
+    'Ontario',
+    'M2J 3T7'
+), (
+    '908c467d-051a-445c-bb92-f0faaeb2b3b8',
+    '3449 Glover Road',
+    '604-532-2845',
+    'Langley',
+    'British Columbia',
+    'V3A 1Z3'
+);
