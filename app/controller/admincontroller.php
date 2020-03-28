@@ -1,27 +1,143 @@
 <?php
 
-class Admin extends Account{
-    public function createAnyAccount(  
-        $loginid,
-        $pword,
-        $firstName,
-        $lastName,
-        $accountType
-    ) {
+class AdminController extends Admin{
+    private function generateAccDetails(){
+        $accDetails = [];
+
         //Generate GUID for account
-        $accountId = $this->generateGUID();
+        $accDetails['guid'] = $this->generateGUID();
+
+        //Generate secure temporary password
+        $pword = random_int(10000000, 99999999);
 
         //Hash the password
-        $hashed_pass = password_hash($pword, PASSWORD_DEFAULT);
+        // $accDetails['hashedPword'] = password_hash($pword, PASSWORD_DEFAULT);  //Figure out how to send the raw temporary password to user
+        $accDetails['hashedPword'] = $pword;
 
-        //Create the patient account
+        return $accDetails;
+    }
+
+    public function createDoctor(  
+        $loginid,
+        $firstName,
+        $lastName,
+        $accountType,
+        $doctorEmail,
+        $doctorClinicSelect
+    ){
+        //Generate guid and password for account
+        $accDetails = $this->generateAccDetails();
+
+        //Create the doctor account
         $this->createAccount(
-            $accountId,
+            $accDetails['guid'],
             $loginid,
-            $hashed_pass,
+            $accDetails['hashedPword'],
             $firstName,
             $lastName,
             $accountType
         );
+
+        //Create the doctor profile
+        $this->createDoctorProfile(
+            $accDetails['guid'],
+            $doctorEmail,
+            $doctorClinicSelect
+        );
+
+        header('location: /healthcare-php/app/view/homepage.php?message=doctorCreated');
+    }
+
+    public function createStaff(  
+        $loginid,
+        $firstName,
+        $lastName,
+        $accountType,
+        $staffClinicSelect
+    ){
+        //Generate guid and password for account
+        $accDetails = $this->generateAccDetails();
+
+        //Create the doctor account
+        $this->createAccount(
+            $accDetails['guid'],
+            $loginid,
+            $accDetails['hashedPword'],
+            $firstName,
+            $lastName,
+            $accountType
+        );
+
+        //Create the doctor profile
+        $this->createStaffProfile(
+            $accDetails['guid'],
+            $staffClinicSelect
+        );
+
+        header('location: /healthcare-php/app/view/homepage.php?message=staffCreated');
+    }
+
+    public function createPatient(  
+        $loginid,
+        $firstName,
+        $lastName,
+        $accountType,
+        $patientEmail,
+        $patientPhoneNum,
+        $patientAddress,
+        $patientCity,
+        $patientProvince,
+        $patientPostCode,
+        $PatientEmailNoti
+    ){
+        //Generate guid and password for account
+        $accDetails = $this->generateAccDetails();
+
+        //Create the doctor account
+        $this->createAccount(
+            $accDetails['guid'],
+            $loginid,
+            $accDetails['hashedPword'],
+            $firstName,
+            $lastName,
+            $accountType
+        );
+
+        //Create the doctor profile
+        $this->createPatientProfile(
+            $accDetails['guid'],
+            $patientEmail,
+            $patientPhoneNum,
+            $patientAddress,
+            $patientCity,
+            $patientProvince,
+            $patientPostCode,
+            $PatientEmailNoti
+        );
+
+        header('location: /healthcare-php/app/view/homepage.php?message=patientCreated');
+    }
+
+
+    public function createAdmin(  
+        $loginid,
+        $firstName,
+        $lastName,
+        $accountType
+    ){
+        //Generate guid and password for account
+        $accDetails = $this->generateAccDetails();
+
+        //Create the doctor account
+        $this->createAccount(
+            $accDetails['guid'],
+            $loginid,
+            $accDetails['hashedPword'],
+            $firstName,
+            $lastName,
+            $accountType
+        );
+
+        header('location: /healthcare-php/app/view/homepage.php?message=adminCreated');
     }
 }
