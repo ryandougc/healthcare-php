@@ -2,17 +2,19 @@
 <?php 
 
 //Check if a user is logged in. Send them to the signin page if they aren't
-require_once('../includes/sessionCheck.php');
+require_once('../../includes/sessionCheck.php');
+//Only give access to patients
+require_once('../../includes/patientAccess.php');
 
 //include all of the controllers and models
-include '../model/database.class.php';
-include '../model/account.class.php';
-include '../model/patient.class.php';
-include '../controller/accountcontroller.php';
-include '../controller/patientcontroller.php';
+include '../../model/database.class.php';
+include '../../model/account.class.php';
+include '../../model/patient.class.php';
+include '../../controller/accountcontroller.php';
+include '../../controller/patientcontroller.php';
 
 //Include the page header
-include '../view/partials/header.php'; 
+include '../../view/partials/header.php'; 
 
 //If a use is signed in, 
 if(isset($_SESSION['signedin'])){
@@ -21,7 +23,7 @@ if(isset($_SESSION['signedin'])){
 }
 
 //Log the user out on click
-if(isset($_GET['action']) && $_GET['action'] != ""){
+if(isset($_GET['action']) && $_GET['action'] == "signout"){
     $account = new AccountController();
     $account->logout();
 }
@@ -35,5 +37,5 @@ if(isset($_GET['action']) && $_GET['action'] != ""){
 <br/>
 <a href="editPatientProfile.php">Edit your profile</a>
 
-<?php include '../view/partials/footer.php'; ?>
+<?php include '../../view/partials/footer.php'; ?>
 

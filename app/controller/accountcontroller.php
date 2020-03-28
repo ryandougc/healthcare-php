@@ -21,7 +21,7 @@ class AccountController extends Account{
                 $_SESSION['firstName'] = $account['FirstName'];
                 $_SESSION['lastName'] = $account['LastName'];
                 
-                header('location: ../view/homepage.php');
+                header('location: ../view/index.php');
                 exit();
             }else {
                 header('location: ?message=passwordIncorrect');

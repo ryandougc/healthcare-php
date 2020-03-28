@@ -92,7 +92,7 @@ class PatientController extends Patient{
             $emailNoti
         );
 
-        header('location: homepage.php');
+        header('location: index.php');
         exit();
     }
 }

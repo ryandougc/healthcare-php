@@ -10,7 +10,7 @@
     //Redirect if already signed in
     session_start();
     if(isset($_SESSION['signedin'])){
-      header('location: homepage.php');
+      header('location: index.php');
     }
 
     if(isset($_POST['submit'])) { 

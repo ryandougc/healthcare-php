@@ -53,4 +53,19 @@ class Admin extends Account {
             exit();
         }
     }
+
+    protected function getAccountList(){
+        try{
+            $sql = "SELECT * FROM account";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute();
+
+            $results = $stmt->fetchAll(); 
+            return $results;
+        }
+        catch(PDOException $e){
+            echo "Error in query 'getAccountList': " . $e->getMessage();
+            exit();
+        }
+    }
 }

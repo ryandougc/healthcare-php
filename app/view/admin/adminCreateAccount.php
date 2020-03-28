@@ -3,19 +3,19 @@
 <?php
 
 //Check if a user is logged in. Send them to the signin page if they aren't
-require_once('../includes/sessionCheck.php');
+require_once('../../includes/sessionCheck.php');
 //Only give access to admins
-require_once('../includes/adminAccess.php');
+require_once('../../includes/adminAccess.php');
 
-include '../model/database.class.php';
-include '../model/account.class.php';
-include '../model/admin.class.php';
-include '../model/clinic.class.php';
-include '../controller/admincontroller.php';
-include '../controller/cliniccontroller.php';
+include '../../model/database.class.php';
+include '../../model/account.class.php';
+include '../../model/admin.class.php';
+include '../../model/clinic.class.php';
+include '../../controller/admincontroller.php';
+include '../../controller/cliniccontroller.php';
 
 //Include the page header
-include '../view/partials/header.php';
+include '../../view/partials/header.php';
 
 //Get clinics data
 $clinic = new ClinicController();
@@ -251,7 +251,7 @@ if(isset($_POST['submit'])) {
 
 </form>
 
-<?php include '../view/partials/footer.php'; ?>
+<?php include '../../view/partials/footer.php'; ?>
 
 <script>
 $('#accountTypeSelect').change(function(){
