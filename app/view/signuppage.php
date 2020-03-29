@@ -7,6 +7,8 @@ include '../model/account.class.php';
 include '../model/patient.class.php';
 include '../controller/patientcontroller.php';
 
+include '../view/partials/header.php';
+
 if(isset($_POST['submit'])) { 
     //Get and filter inputs
     $loginid    = filter_input(INPUT_POST, 'loginid');
@@ -115,3 +117,5 @@ if(isset($_POST['submit'])) {
   
     <button type="submit" name="submit">Sign Up</button>
 </form>
+
+<?php include '../view/partials/footer.php'; ?>
