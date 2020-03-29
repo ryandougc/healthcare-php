@@ -7,6 +7,8 @@ include '../model/account.class.php';
 include '../model/patient.class.php';
 include '../controller/patientcontroller.php';
 
+include '../partials/header.php';
+
 if(isset($_POST['submit'])) { 
     //Get and filter inputs
     $loginid    = filter_input(INPUT_POST, 'loginid');
