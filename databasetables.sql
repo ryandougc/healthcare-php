@@ -9,7 +9,7 @@ DROP TABLE DOCTOR
 DROP TABLE SYSTEM_ADMIN
 DROP TABLE STAFF
 DROP TABLE EXAM_RESULTS
-DROP TABLE VISIT */
+DROP TABLE VISIT;*/
 
 CREATE  TABLE CLINIC(
     ClinicID            VarChar(36)     NOT NULL,
@@ -100,23 +100,23 @@ CREATE  TABLE VISIT (
                             REFERENCES PATIENT (PatientID)
                                 ON UPDATE NO ACTION
                                 ON DELETE CASCADE
-    );
+    );  
 
 
 
 -- ALTER TABLES
-ALTER TABLE patient 
+ALTER TABLE PATIENT 
 ADD COLUMN  PatientCity         VarChar(50) NOT NULL, 
 ADD COLUMN  PatientProvince     VarChar(50) NOT NULL,
 ADD COLUMN  PatientPostCode     VarChar(10) NOT NULL;
 
-ALTER TABLE clinic
+ALTER TABLE CLINIC
 ADD COLUMN ClinicCity           VarChar(50) NOT NULL, 
 ADD COLUMN ClinicProvince       VarChar(50) NOT NULL,
 ADD COLUMN ClinicPostCode       VarChar(10) NOT NULL;
 
 -- Fake clinic data
-INSERT INTO clinic(
+INSERT INTO CLINIC(
     ClinicID,
     ClinicAddress,
     ClinicPhone,
