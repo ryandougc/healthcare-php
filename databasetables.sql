@@ -105,12 +105,12 @@ CREATE  TABLE VISIT (
 
 
 -- ALTER TABLES
-ALTER TABLE patient 
+ALTER TABLE PATIENT
 ADD COLUMN  PatientCity         VarChar(50) NOT NULL, 
 ADD COLUMN  PatientProvince     VarChar(50) NOT NULL,
 ADD COLUMN  PatientPostCode     VarChar(10) NOT NULL;
 
-ALTER TABLE clinic
+ALTER TABLE CLINIC
 ADD COLUMN ClinicCity           VarChar(50) NOT NULL, 
 ADD COLUMN ClinicProvince       VarChar(50) NOT NULL,
 ADD COLUMN ClinicPostCode       VarChar(10) NOT NULL;
