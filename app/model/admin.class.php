@@ -54,7 +54,7 @@ class Admin extends Account {
         }
     }
 
-    protected function getAccountList(){
+    protected function getAccounts(){
         try{
             $sql = "SELECT * FROM account";
             $stmt = $this->connect()->prepare($sql);
@@ -65,6 +65,54 @@ class Admin extends Account {
         }
         catch(PDOException $e){
             echo "Error in query 'getAccountList': " . $e->getMessage();
+            exit();
+        }
+    }
+
+    protected function delAccount($accountId){
+        try{
+            $sql = "DELETE FROM account WHERE AccountID = ?";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute([$accountId]);
+        }
+        catch(PDOException $e){
+            echo "Error in query 'delAccount': " . $e->getMessage();
+            exit();
+        }
+    }
+
+    protected function delPatient($accountId){
+        try{
+            $sql = "DELETE FROM patient WHERE PatientID = ?";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute([$accountId]);
+        }
+        catch(PDOException $e){
+            echo "Error in query 'delPatient': " . $e->getMessage();
+            exit();
+        }
+    }
+
+    protected function delDoctor($accountId){
+        try{
+            $sql = "DELETE FROM doctor WHERE DoctorID = ?";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute([$accountId]);
+        }
+        catch(PDOException $e){
+            echo "Error in query 'delDoctor': " . $e->getMessage();
+            exit();
+        }
+    }
+
+    protected function delStaff($accountId){
+        try{
+            $sql = "DELETE FROM staff WHERE StaffID = ?";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute([$accountId]);
+        }
+        catch(PDOException $e){
+            echo "Error in query 'delStaff': " . $e->getMessage();
             exit();
         }
     }

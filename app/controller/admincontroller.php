@@ -140,4 +140,21 @@ class AdminController extends Admin{
 
         header('location: /healthcare-php/app/view/homepage.php?message=adminCreated');
     }
+
+    public function getAccountList(){
+        return $this->getAccounts();
+    }
+
+    public function deleteAccount($accountId, $accType){
+        $this->delAccount($accountId);
+
+        $this->delPatient($accountId);
+
+        $this->delDoctor($accountId);
+
+        $this->delStaff($accountId);
+
+        header('location: adminHomePage.php?message=accountDeleted');
+    }
+
 }
