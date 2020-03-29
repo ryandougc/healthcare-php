@@ -5,7 +5,7 @@
     include '../model/account.class.php';
     include '../controller/accountcontroller.php';
 
-    include '../view/partials/header.php';
+    include './partials/header.php';
 
     //Redirect if already signed in
     session_start();
@@ -46,4 +46,4 @@
   <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Sign In</button>
 </form>
 
-<?php include '../view/partials/footer.php'; ?>
+<?php include './partials/footer.php'; ?>

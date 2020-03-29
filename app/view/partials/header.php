@@ -10,5 +10,5 @@
     <title>Healthcare System</title>
     
     <!--<link rel="stylesheet" href="style.css">-->
-    <link rel="stylesheet"  href="css/signin.css">
+    <link rel="stylesheet"  href="/healthcare-php/public/css/style.css">
 </head>
