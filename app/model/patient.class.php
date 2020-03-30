@@ -51,7 +51,7 @@ class Patient extends Account {
         }
     }
 
-    public function searchVists($VisitID){
+    public function patientSearchVists($VisitID){
 
         $sql = "SELECT PatientID, VisitDate, Prescription, SuggestedExam
         FROM VISIT 

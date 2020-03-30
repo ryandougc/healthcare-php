@@ -28,13 +28,13 @@ $doctorDetails = $doctor->getDoctorProfile($_SESSION['loginid']);
 
             <ul class="list-unstyled components">
                 <li>
-                    <a href="patientHomePage.php">Home</a>
+                    <a href="doctorHomePage.php">Home</a>
                 </li>
                 <li class="active">
-                    <a href="viewPatientProfile.php">Profile</a>
+                    <a href="viewDoctorProfile.php">Profile</a>
                 </li>
                 <li>
-                    <a href="editPatientProfile.php">Change Profile</a>
+                    <a href="editDoctorProfile.php">Change Profile</a>
                 </li>
                 <li>
                     <a href="">Visits</a>

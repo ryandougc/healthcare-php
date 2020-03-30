@@ -32,7 +32,7 @@ class doctorModel extends Database{
 
     }
 
-    public function searchVists($VisitID){
+    public function docSearchVists($VisitID){
 
         $sql = "SELECT * FROM VISIT 
         WHERE VisitID = ?";

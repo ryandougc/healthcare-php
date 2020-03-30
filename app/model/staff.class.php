@@ -1,7 +1,7 @@
 <?php
 class staff extends Database{
 
-    public function searchVists($VisitID){
+    public function staffSearchVists($VisitID){
 
         $sql = "SELECT * FROM VISIT 
         WHERE VisitID = ?";
