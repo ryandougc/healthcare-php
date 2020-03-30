@@ -20,7 +20,7 @@ if(isset($_SESSION['signedin'])){
     $patientDetails = $patient->getPatientProfile($_SESSION['loginid']);
 }
 
-//Log the user out on click
+//Log the user out on clickz
 if(isset($_GET['action']) && $_GET['action'] == "signout"){
     $account = new AccountController();
     $account->logout();
