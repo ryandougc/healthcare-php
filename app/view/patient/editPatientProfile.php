@@ -1,3 +1,4 @@
+<?php include '../partials/header.php'; ?>
 <body>
 <?php
 
@@ -11,8 +12,6 @@ include '../../model/database.class.php';
 include '../../model/account.class.php';
 include '../../model/patient.class.php';
 include '../../controller/patientcontroller.php';
-
-include '../partials/header.php';
 
 //Get the patient profile data
 $patient = new PatientController();
