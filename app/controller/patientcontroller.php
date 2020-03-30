@@ -1,7 +1,5 @@
 <?php
 
-require_once("visitcontroller.php");
-
 class PatientController extends Patient{
     public function patientSignUp(
         $loginid,
