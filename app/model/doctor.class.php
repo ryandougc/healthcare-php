@@ -52,15 +52,15 @@ class doctorModel extends Database{
 
     }
     
-    private function postVistDetails(VisitID, DoctorID, ClinicID,
-    PAtientID, VisitDate, DoctorNotes, SuggestedExam){
+    private function postVistDetails($VisitID, $DoctorID, $ClinicID,
+    $PatientID, $VisitDate, $DoctorNotes, $SuggestedExam){
 
         $sql = "INSERT INTO Visit(VisitID, DoctorID, ClinicID,
-        PAtientID, VisitDate, DoctorNotes, SuggestedExam) 
+        PatientID, VisitDate, DoctorNotes, SuggestedExam) 
         VALUES (?,?,?,?,?,?,?)";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute(['VisitID', 'DoctorID', 'ClinicID',
-        'PAtientID', 'VisitDate', 'DoctorNotes', 'SuggestedExam']);
+        'PatientID', 'VisitDate', 'DoctorNotes', 'SuggestedExam']);
 
     }
 
