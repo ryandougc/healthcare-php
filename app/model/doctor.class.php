@@ -49,7 +49,6 @@ class doctorModel extends Database{
     private function postPrescription(){
 
         //recieve data
-
         //insert into database
         $sql = "INSERT Prescription FROM VISIT WHERE Prescription = ?";
         $stmt = $this->connect()->prepare($sql);
