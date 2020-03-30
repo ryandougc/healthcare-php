@@ -40,10 +40,10 @@ if(isset($_GET['action']) && $_GET['action'] == "signout"){
                     <a href="patientHomePage.php">Home</a>
                 </li>
                 <li>
-                    <a href="viewPatientProfile.php">Profile</a>
+                    <a href="viewDoctorProfile.php">Profile</a>
                 </li>
                 <li>
-                    <a href="editPatientProfile.php">Change Profile</a>
+                    <a href="editDoctorProfile.php">Change Profile</a>
                 </li>
                 <li>
                     <a href="">Visits</a>
@@ -76,9 +76,8 @@ if(isset($_GET['action']) && $_GET['action'] == "signout"){
                     <a href="?action=signout">Sign Out</a>
                 </div>
             </nav>
-            <!--<h1>Welcome <?php echo $_SESSION['firstName'] . " " . $_SESSION['lastName']; ?></h1>-->
+            <h1>Welcome Doctor: <?php echo $_SESSION['firstName'] . " " . $_SESSION['lastName']; ?></h1>
 
-            <h1>Welcome doctor</h1>
         </div>
     </div>
 
