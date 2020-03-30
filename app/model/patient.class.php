@@ -53,7 +53,8 @@ class Patient extends Account {
 
     public function searchVists($VisitID){
 
-        $sql = "SELECT * FROM VISIT 
+        $sql = "SELECT PatientID, VisitDate, Prescription, SuggestedExam
+        FROM VISIT 
         WHERE VisitID = ?";
         $stmt = $this->connect()->query($sql);
         $stmt->execute(['VisitID']);
