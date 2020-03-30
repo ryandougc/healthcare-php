@@ -74,7 +74,7 @@ if(isset($_GET['action']) && $_GET['action'] == "signout"){
                 </div>
             </nav>
             
-            <h1>Welcome admin</h1>
+            <h1>Welcome <?php echo $_SESSION['firstName'] . " " . $_SESSION['lastName']; ?></h1>
 
             <a href="adminCreateAccount.php">Create an Account</a>
             <br/>
