@@ -111,26 +111,29 @@ if(isset($_POST['submit'])) {
             <h2>Update Patient Profile</h2>
             <form class="form-editprofile" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                 <div class="form-row">
-                <label for="phoneNumInput">Phone Number</label>
-                <input id="phoneNumInput" class="form-control" type="text" name="phoneNum" 
-                value="<?php echo $patientDetails['PatientPhone']; ?>">
+                    <label for="phoneNumInput">Phone Number</label>
+                    <input id="phoneNumInput" class="form-control" type="text" name="phoneNum" 
+                    value="<?php echo $patientDetails['PatientPhone']; ?>">
                 </div>
                 <div class="form-row">
-                <label for="addresInput">Address</label>
-                <input id="addresInput" class="form-control" type="text" name="address" 
-                value="<?php echo $patientDetails['PatientAddress']; ?>">
+                    <label for="addresInput">Address</label>
+                    <input id="addresInput" class="form-control" type="text" name="address" 
+                    value="<?php echo $patientDetails['PatientAddress']; ?>">
                 </div>
                 <div class="form-row">
-                <label for="cityInput">City</label>
-                <input id="cityInput" class="form-control" type="text" name="city">
+                    <label for="cityInput">City</label>
+                    <input id="cityInput" class="form-control" type="text" name="city"
+                    value="<?php echo $patientDetails['PatientCity']; ?>">
                 </div>
                 <div class="form-row">
-                <label for="provinceInput">Province</label>
-                <input id="provinceInput" class="form-control" type="text" name="province">
+                    <label for="provinceInput">Province</label>
+                    <input id="provinceInput" class="form-control" type="text" name="province"
+                    value="<?php echo $patientDetails['PatientProvince']; ?>">
                 </div>
-                <div class="form-row">
-                <label for="postCodeInput">Postal Code</label>
-                <input id="postCodeInput" class="form-control" type="text" name="postCode">
+                    <div class="form-row">
+                    <label for="postCodeInput">Postal Code</label>
+                    <input id="postCodeInput" class="form-control" type="text" name="postCode"
+                value="<?php echo $patientDetails['PatientPostCode']; ?>">
 
                 <div>
                     <h4>Receive Email Notifications?</h4>

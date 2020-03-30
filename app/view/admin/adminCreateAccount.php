@@ -151,8 +151,8 @@ if(isset($_POST['submit'])) {
 
 ?>
 
-<!-- Sign up form -->
-<h2>Sign Up</h2>
+<!-- Create Account form -->
+<h2>Create Account</h2>
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
     <label for="usernameInput">Login ID</label>
     <input id="usernameInput" type="text" name="loginid">

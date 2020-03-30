@@ -14,8 +14,8 @@ include '../../model/admin.class.php';
 include '../../controller/accountcontroller.php';
 include '../../controller/admincontroller.php';
  
-// $patient = new AdminController();
-// $patientDetails = $patient->getPatientProfile($_SESSION['loginid']);
+// $admin = new AdminController();
+// $patientDetails = $admin->getPatientProfile($_SESSION['loginid']);
 
 
 //Log the user out on click
@@ -34,16 +34,16 @@ if(isset($_GET['action']) && $_GET['action'] == "signout"){
 
             <ul class="list-unstyled components">
                 <li class="active">
-                    <a href="patientHomePage.php">Home</a>
+                    <a href="adminHomePage.php">Home</a>
                 </li>
                 <li>
-                    <a href="viewPatientProfile.php">Profile</a>
+                    <a href="adminViewAccounts.php">View Accounts</a>
                 </li>
                 <li>
-                    <a href="editPatientProfile.php">Change Profile</a>
+                    <a href="adminCreateAccount.php">Create Account</a>
                 </li>
                 <li>
-                    <a href="">Visits</a>
+                    <a href="adminModifyAccount.php?accountId=<?php echo $_SESSION['accID']; ?>">Own Account</a>
                 </li>
                 <li>
                     <a href="">Exams</a>
@@ -74,7 +74,7 @@ if(isset($_GET['action']) && $_GET['action'] == "signout"){
                 </div>
             </nav>
             
-            <h1>Welcome admin</h1>
+            <h1>Welcome <?php echo $_SESSION['firstName'] . " " . $_SESSION['lastName']; ?></h1>
 
             <a href="adminCreateAccount.php">Create an Account</a>
             <br/>
