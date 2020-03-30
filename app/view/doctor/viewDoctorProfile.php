@@ -101,5 +101,4 @@ $doctorDetails = $doctor->getDoctorProfile($_SESSION['loginid']);
         });
     </script>
 
-
-
+<?php include '../../view/partials/footer.php'; ?>

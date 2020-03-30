@@ -150,3 +150,4 @@ if(isset($_POST['submit'])) {
         });
     </script>
 
+<?php include '../../view/partials/footer.php'; ?>
