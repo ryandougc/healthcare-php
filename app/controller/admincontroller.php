@@ -141,6 +141,10 @@ class AdminController extends Admin{
         header('location: /healthcare-php/app/view/homepage.php?message=adminCreated');
     }
 
+    public function getAccountByID($accountId){
+        return $this->getAccount($accountId);
+    }
+
     public function getAccountList(){
         return $this->getAccounts();
     }
@@ -155,6 +159,27 @@ class AdminController extends Admin{
         $this->delStaff($accountId);
 
         header('location: adminHomePage.php?message=accountDeleted');
+    }
+
+    public function updateAccount(
+        $accountId,
+        $loginid,
+        $pword,
+        $firstName,
+        $lastName
+    ){
+        //Hash password
+        $hashed_pass = password_hash($pword, PASSWORD_DEFAULT);
+
+        $this-> putAccount(
+            $accountId,
+            $loginid,
+            $hashed_pass,
+            $firstName,
+            $lastName
+        );
+
+        header('location: adminHomePage.php');
     }
 
 }

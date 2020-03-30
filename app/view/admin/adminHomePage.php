@@ -31,6 +31,7 @@ if(isset($_GET['action']) && $_GET['action'] == "signout"){
 <h1>Welcome admin</h1>
 
 <a href="adminCreateAccount.php">Create an Account</a>
-<a href="adminviewPatients.php">View Account List</a>
+<br/>
+<a href="adminviewAccounts.php">View Account List</a>
 
 <?php include '../../view/partials/footer.php'; ?>

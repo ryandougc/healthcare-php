@@ -26,7 +26,7 @@ if(isset($_POST['delete'])) {
 }
 
 if(isset($_POST['edit'])) { 
-    
+    header('location: adminModifyAccount.php?accountId='. $_POST['edit']);
 }
 
 ?>
