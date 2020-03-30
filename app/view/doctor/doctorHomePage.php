@@ -1,3 +1,4 @@
+<body>
 <?php
 
 //Check if a user is logged in. Send them to the signin page if they aren't
