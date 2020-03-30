@@ -1,6 +1,6 @@
 <?php 
 
-class doctorController{
+class doctorController extends doctor{
 
     private $Array = []; 
 

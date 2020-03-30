@@ -38,21 +38,13 @@ class doctorModel extends Database{
         WHERE VisitID = ?";
         $stmt = $this->connect()->query($sql);
         $stmt->execute(['VisitID']);
-        $names = $stmt->fetchll();
-
-        foreach($names as $name)
-        {
-        echo $row['ClincID'].'<br>';
-        echo $row['PatientID'].'<br>';
-        echo $row['VisitDate'].'<br>';
-        echo $row['Prescription'].'<br>';
-        echo $row['DoctorNotes'].'<br>';
-        echo $row['SuggestedExam'].'<br>';
-        }
+        
+        $results = $stmt->fetchll();
+        return $results;
 
     }
     
-    private function postVistDetails($VisitID, $DoctorID, $ClinicID,
+    protected function postVistDetails($VisitID, $DoctorID, $ClinicID,
     $PatientID, $VisitDate, $Prescription, $DoctorNotes, $SuggestedExam){
 
         $sql = "INSERT INTO Visit(VisitID, DoctorID, ClinicID,
@@ -64,7 +56,7 @@ class doctorModel extends Database{
 
     }
 
-    private function postPrescription($Prescription, $VistID){
+    protected function postPrescription($Prescription, $VistID){
 
         $sql = "UPDATE Visit SET Prescription = ? WHERE VisitID = ?";
         $stmt = $this->connect()->prepare($sql);
