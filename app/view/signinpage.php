@@ -1,6 +1,6 @@
+<?php include './partials/header.php'; ?>
 <body class="bodysignin">
 <?php
-    include './partials/header.php';
 
     include '../model/database.class.php';
     include '../model/account.class.php';
