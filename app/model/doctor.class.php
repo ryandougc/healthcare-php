@@ -33,6 +33,7 @@ class doctorModel extends Database{
     }
 
     public function searchVists($VisitID){
+
         $sql = "SELECT * FROM VISIT 
         WHERE VisitID = ?";
         $stmt = $this->connect()->query($sql);
@@ -51,19 +52,25 @@ class doctorModel extends Database{
 
     }
     
-    private function postVistDetails(){
+    private function postVistDetails(VisitID, DoctorID, ClinicID,
+    PAtientID, VisitDate, DoctorNotes, SuggestedExam){
 
-        //recieve data
-        //insert into database
+        $sql = "INSERT INTO Visit(VisitID, DoctorID, ClinicID,
+        PAtientID, VisitDate, DoctorNotes, SuggestedExam) 
+        VALUES (?,?,?,?,?,?,?)";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute(['VisitID', 'DoctorID', 'ClinicID',
+        'PAtientID', 'VisitDate', 'DoctorNotes', 'SuggestedExam']);
 
     }
 
-    private function postPrescription(){
+    private function postPrescription(Prescription){
 
-        //recieve data
-        //insert into database
-        $sql = "INSERT Prescription FROM VISIT WHERE Prescription = ?";
+        $sql = "INSERT INTO Visit(Prescription) 
+        WHERE VisitID = ?
+        VALUES (?)";
         $stmt = $this->connect()->prepare($sql);
+        $stmt->execute(['Prescription']);
         
 
     }
