@@ -11,10 +11,10 @@ require_once('../../includes/doctorAccess.php');
 include '../../model/database.class.php';
 include '../../model/account.class.php';
 include '../../model/doctor.class.php';
-include '../../controller/doctorcontroller.php';
+include '../../controller/doctorController.php';
 
 //Get the doctor profile data
-$doctor = new DoctorController();
+$doctor = new doctorController();
 $doctorDetails = $doctor->getDoctorProfile($_SESSION['loginid']);
 
 //On submit, do this

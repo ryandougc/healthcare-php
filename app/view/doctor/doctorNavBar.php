@@ -1,22 +1,9 @@
-<?php include '../partials/header.php'; ?>
-<body>
 <?php
-
-//Check if a user is logged in. Send them to the signin page if they aren't
-require_once('../../includes/sessionCheck.php');
-//Only give access to doctors
-require_once('../../includes/doctorAccess.php');
-
-//include all of the controllers and models
-include '../../model/database.class.php';
-include '../../model/account.class.php';
-include '../../model/doctor.class.php';
-include '../../controller/doctorcontroller.php';
-
-//Get the Doctor profile data
-$doctor = new DoctorController();
-$doctorDetails = $doctor->getDoctorProfile($_SESSION['loginid']);
-
+//Log the user out on click
+if(isset($_GET['action']) && $_GET['action'] == "signout"){
+    $account = new AccountController();
+    $account->logout();
+}
 ?>
 
 <div class="wrapper">
@@ -27,7 +14,7 @@ $doctorDetails = $doctor->getDoctorProfile($_SESSION['loginid']);
             </div>
 
             <ul class="list-unstyled components">
-                <li>
+                <li class="active">
                     <a href="doctorHomePage.php">Home</a>
                 </li>
                 <li class="active">
@@ -64,27 +51,11 @@ $doctorDetails = $doctor->getDoctorProfile($_SESSION['loginid']);
                         <ul class="nav navbar-nav ml-auto">
                         </ul>
                     </div>
+                    <a href="?action=signout">Sign Out</a>
                 </div>
             </nav>
+            <!--<h1>Welcome <?php echo $_SESSION['firstName'] . " " . $_SESSION['lastName']; ?></h1>-->
 
-            <h1 class="h2 mb-3 font-weight-normal"><strong><u>Doctor Full Name:</u></strong></h1>
-            <p><?php echo $_SESSION['firstName'] . " " . $_SESSION['lastName']; ?></p>
-
-            <h3>Doctor Specialization:</h3>
-            <p><?php echo $doctorDetails['DoctorSpecialization']; ?></p>
-
-            <h3>Doctor's Clinic Address:</h3>
-            <p><?php echo $doctorDetails['DoctorClinicAddress']; ?></p>
-
-            <h3>Doctor's Consultancy Fee:</h3>
-            <p><?php echo $doctorDetails['DoctorClinicAddress']; ?></p>
-
-            <h3>Doctor Phone:</h3>
-            <p><?php echo $doctorDetails['DoctorPhone']; ?></p>
-
-            <h3>Doctor Email:</h3>
-            <p><?php echo $doctorDetails['DoctorEmail']; ?></p>
+            <h1>Welcome Doctor</h1>
         </div>
     </div>
-
-<?php include '../../view/partials/footer.php'; ?>
