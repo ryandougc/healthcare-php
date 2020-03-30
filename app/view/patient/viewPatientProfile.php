@@ -32,16 +32,16 @@ $patientDetails = $patient->getPatientProfile($_SESSION['loginid']);
                     <a href="#homeSubmenu">Home</a>
                 </li>
                 <li>
-                    <a href="#">About</a>
+                    <a href="#">Change Profile</a>
                 </li>
                 <li>
-                    <a href="#pageSubmenu">Pages</a>
+                    <a href="#pageSubmenu">Visits</a>
                 </li>
                 <li>
-                    <a href="#">Portfolio</a>
+                    <a href="#">Exams</a>
                 </li>
                 <li>
-                    <a href="#">Contact</a>
+                    <a href="#">Exam Results</a>
                 </li>
             </ul>
         </nav>
