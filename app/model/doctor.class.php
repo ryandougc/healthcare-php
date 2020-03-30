@@ -64,7 +64,7 @@ class doctorModel extends Database{
 
     }
 
-    private function postPrescription(Prescription){
+    private function postPrescription($Prescription){
 
         $sql = "INSERT INTO Visit(Prescription) 
         WHERE VisitID = ?
