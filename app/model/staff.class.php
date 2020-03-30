@@ -12,4 +12,9 @@ class staff extends Database{
         return $results;
 
     }
+
+    protected function postExamDetails(){
+
+        
+    }
 }

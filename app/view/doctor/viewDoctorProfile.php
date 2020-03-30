@@ -77,7 +77,7 @@ $doctorDetails = $doctor->getDoctorProfile($_SESSION['loginid']);
             <p><?php echo $doctorDetails['DoctorClinicAddress']; ?></p>
 
             <h3>Doctor's Consultancy Fee:</h3>
-            <p><?php echo $doctorDetails['DoctorClinicAddress']; ?></p>
+            <p><?php echo $doctorDetails['DoctorConsultancyFee']; ?></p>
 
             <h3>Doctor Phone:</h3>
             <p><?php echo $doctorDetails['DoctorPhone']; ?></p>
