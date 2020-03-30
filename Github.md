@@ -56,6 +56,10 @@ We will manually update the master branch, so all commands will apply to the "de
 - `git checkout` //Shows all the files in after executing `git add` command
 - `git commit` //messages are displayed clearly here
 
+### Revert changes to previous pull
+
+- `git checkout -- [path to file]` // resets to file before you made changes to it
+
 ### Branch Management
 
 - `git status` //show.

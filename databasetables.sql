@@ -105,6 +105,7 @@ CREATE  TABLE VISIT (
 
 
 -- ALTER TABLES
+/*
 ALTER TABLE PATIENT
 ADD COLUMN  PatientCity         VarChar(50) NOT NULL, 
 ADD COLUMN  PatientProvince     VarChar(50) NOT NULL,
@@ -138,3 +139,4 @@ INSERT INTO clinic(
     'British Columbia',
     'V3A 1Z3'
 );
+*/ 
