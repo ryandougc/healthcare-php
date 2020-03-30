@@ -28,20 +28,23 @@ $patientDetails = $patient->getPatientProfile($_SESSION['loginid']);
             </div>
 
             <ul class="list-unstyled components">
+                <li>
+                    <a href="patientHomePage.php">Home</a>
+                </li>
                 <li class="active">
-                    <a href="#homeSubmenu">Home</a>
+                    <a href="viewPatientProfile.php">Profile</a>
                 </li>
                 <li>
-                    <a href="#">Change Profile</a>
+                    <a href="editPatientProfile.php">Change Profile</a>
                 </li>
                 <li>
-                    <a href="#pageSubmenu">Visits</a>
+                    <a href="">Visits</a>
                 </li>
                 <li>
-                    <a href="#">Exams</a>
+                    <a href="">Exams</a>
                 </li>
                 <li>
-                    <a href="#">Exam Results</a>
+                    <a href="">Exam Results</a>
                 </li>
             </ul>
         </nav>
