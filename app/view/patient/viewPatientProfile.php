@@ -86,13 +86,5 @@ $patientDetails = $patient->getPatientProfile($_SESSION['loginid']);
         </div>
     </div>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').toggleClass('active');
-            });
-        });
-    </script>
-
 <?php include '../partials/footer.php'; ?>
 

@@ -140,3 +140,24 @@ INSERT INTO clinic(
     'V3A 1Z3'
 );
 */ 
+
+/*-- Dummy prescription data
+INSERT INTO visit(
+    VisitID,
+    DoctorID,
+    ClinicID,
+    PatientID,
+    VisitDate,
+    Prescription,
+    DoctorNotes,
+    SuggestedExam
+) VALUES (
+    'd185ccbd-2034-42ea-bedc-9fccba4a1c91',
+    '4BB9E2BC-4CD9-428D-AA42-C42BDE17F43E',
+    '0aa2dad2-4dc2-4577-9855-12bf43b340ae',
+    '32504486-0AC8-4431-9792-26463104119D',
+    '2020-03-30',
+    'test.pdf',
+    'Notes',
+    'Exam'
+);*/
