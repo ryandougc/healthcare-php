@@ -73,7 +73,7 @@ if(isset($_GET['action']) && $_GET['action'] == "signout"){
                     <a href="?action=signout">Sign Out</a>
                 </div>
             </nav>
-            <h1>Welcome staff</h1>
+            <h1>Welcome Staff: <?php echo $_SESSION['firstName'] . " " . $_SESSION['lastName']; ?></h1>
         </div>
     </div>
 

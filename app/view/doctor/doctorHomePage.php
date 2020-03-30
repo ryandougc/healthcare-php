@@ -24,4 +24,7 @@ include '../../view/doctor/doctorNavBar.php';
 
 
 
+
+
+
 <?php include '../../view/partials/footer.php'; ?>

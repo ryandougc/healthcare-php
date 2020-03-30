@@ -1,4 +1,4 @@
-<?php include '../partials/header.php'; ?>
+<?php include './partials/header.php'; ?>
 <body class="bodysignin">
 
 <?php
