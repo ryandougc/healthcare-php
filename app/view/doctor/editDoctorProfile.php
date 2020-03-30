@@ -136,12 +136,4 @@ if(isset($_POST['submit'])) {
         </div>
     </div>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').toggleClass('active');
-            });
-        });
-    </script>
-
 <?php include '../../view/partials/footer.php'; ?>
