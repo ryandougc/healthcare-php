@@ -32,10 +32,22 @@ class doctorModel extends Database{
 
     }
 
-    public function searchVists(){
-        
-        //Query
-        //Return data
+    public function searchVists($VisitID){
+        $sql = "SELECT * FROM VISIT 
+        WHERE VisitID = ?";
+        $stmt = $this->connect()->query($sql);
+        $stmt->execute(['VisitID']);
+        $names = $stmt->fetchll();
+
+        foreach($names as $name)
+        {
+        echo $row['ClincID'].'<br>';
+        echo $row['PatientID'].'<br>';
+        echo $row['VisitDate'].'<br>';
+        echo $row['Prescription'].'<br>';
+        echo $row['DoctorNotes'].'<br>';
+        echo $row['SuggestedExam'].'<br>';
+        }
 
     }
     
