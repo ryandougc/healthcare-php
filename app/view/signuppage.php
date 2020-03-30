@@ -1,3 +1,4 @@
+<?php include '../partials/header.php'; ?>
 <body class="bodysignin">
 
 <?php
@@ -6,8 +7,6 @@ include '../model/database.class.php';
 include '../model/account.class.php';
 include '../model/patient.class.php';
 include '../controller/patientcontroller.php';
-
-include './partials/header.php';
 
 if(isset($_POST['submit'])) { 
     //Get and filter inputs
@@ -129,3 +128,4 @@ if(isset($_POST['submit'])) {
   
     <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Sign Up</button>
 </form>
+<?php include './partials/footer.php'; ?>

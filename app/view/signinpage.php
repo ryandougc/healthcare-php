@@ -1,11 +1,10 @@
+<?php include '../partials/header.php'; ?>
 <body class="bodysignin">
 <?php
 
     include '../model/database.class.php';
     include '../model/account.class.php';
     include '../controller/accountcontroller.php';
-
-    include './partials/header.php';
 
     //Redirect if already signed in
     session_start();
