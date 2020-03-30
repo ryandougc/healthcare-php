@@ -2,7 +2,7 @@
 
 class Account extends Database{
     protected function getLoginDetails($loginid) {
-        $sql = "SELECT * FROM account WHERE LoginID = ?";
+        $sql = "SELECT * FROM ACCOUNT WHERE LoginID = ?";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$loginid]);
 
@@ -12,7 +12,7 @@ class Account extends Database{
 
     protected function createAccount($accountid, $loginid, $pword, $firstName, $lastName, $accountType) {
         try{
-            $sql = "INSERT INTO account(AccountID, LoginID, AccountPassword, FirstName, LastName, AccountType) VALUES (?, ?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO ACCOUNT(AccountID, LoginID, AccountPassword, FirstName, LastName, AccountType) VALUES (?, ?, ?, ?, ?, ?)";
             $stmt = $this->connect()->prepare($sql);
             $stmt->execute([$accountid, $loginid, $pword, $firstName, $lastName, $accountType]);
         }
