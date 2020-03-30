@@ -1,4 +1,4 @@
-<body>
+<body class="bodysignin">
 
 <?php
 
@@ -7,7 +7,7 @@ include '../model/account.class.php';
 include '../model/patient.class.php';
 include '../controller/patientcontroller.php';
 
-include '../partials/header.php';
+include './partials/header.php';
 
 if(isset($_POST['submit'])) { 
     //Get and filter inputs
@@ -73,39 +73,51 @@ if(isset($_POST['submit'])) {
 ?>
 
 <!-- Sign up form -->
-<h2>Sign Up</h2>
-<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-    <label for="usernameInput">Email</label>
-    <input id="usernameInput" type="text" name="loginid">
 
-    <label for="passwordInput">Password</label>
-    <input id="passwordInput" type="password" name="pword">
 
+<form class="form-signin" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+<h2 class="h2 mb-3 font-weight-normal">Sign Up</h2>
+    <div class="form-row">
+    <label for="usernameInput">Email:</label>
+    <input id="usernameInput" type="text" name="loginid" class="form-control" required autofocus>
+    </div>
+    <div class="form-row">
+    <label for="passwordInput">Password:</label>
+    <input id="passwordInput" type="password" name="pword" class="form-control" required>
+    </div>
+    <div class="form-row">
     <label for="passwordMatchInput">Re-type Password</label>
-    <input id="passwordMatchInput" type="password" name="pwordMatch">
-
+    <input id="passwordMatchInput" type="password" name="pwordMatch"class="form-control"required>
+    </div>
+    <div class="form-row">
     <label for="firstNameInput">First Name</label>
-    <input id="firstNameInput" type="text" name="firstName">
-
+    <input id="firstNameInput" type="text" name="firstName" class="form-control" required>
+    </div>
+    <div class="form-row">
     <label for="lastNameInput">Last Name</label>
-    <input id="lastNameInput" type="text" name="lastName">
-
+    <input id="lastNameInput" type="text" name="lastName" class="form-control" required>
+    </div>
+    <div class="form-row">
     <label for="phoneNumInput">Phone Number</label>
-    <input id="phoneNumInput" type="text" name="phoneNum">
-
+    <input id="phoneNumInput" type="text" name="phoneNum" class="form-control" required>
+    </div>
+    <div class="form-row">
     <label for="addresInput">Address</label>
-    <input id="addresInput" type="text" name="address">
-
+    <input id="addresInput" type="text" name="address" class="form-control" required>
+    </div>
+    <div class="form-row">
     <label for="cityInput">City</label>
-    <input id="cityInput" type="text" name="city">
-
+    <input id="cityInput" type="text" name="city" class="form-control" required>
+    </div>
+    <div class="form-row">
     <label for="provinceInput">Province</label>
-    <input id="provinceInput" type="text" name="province">
-
+    <input id="provinceInput" type="text" name="province" class="form-control" required>
+    </div>
+    <div class="form-row">
     <label for="postCodeInput">Postal Code</label>
-    <input id="postCodeInput" type="text" name="postCode">
+    <input id="postCodeInput" type="text" name="postCode" class="form-control" required>
 
-    <div>
+    <div >
         <h4>Receive Email Notifications?</h4>
 
         <label for="emailNotifNoRadio">No</label>
@@ -115,5 +127,5 @@ if(isset($_POST['submit'])) {
         <input id="emailNotifYesRadio" type="radio" name="emailNotifications"  value="1">
     </div>
   
-    <button type="submit" name="submit">Sign Up</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Sign Up</button>
 </form>
