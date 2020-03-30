@@ -53,24 +53,22 @@ class doctorModel extends Database{
     }
     
     private function postVistDetails($VisitID, $DoctorID, $ClinicID,
-    $PatientID, $VisitDate, $DoctorNotes, $SuggestedExam){
+    $PatientID, $VisitDate, $Prescription, $DoctorNotes, $SuggestedExam){
 
         $sql = "INSERT INTO Visit(VisitID, DoctorID, ClinicID,
-        PatientID, VisitDate, DoctorNotes, SuggestedExam) 
-        VALUES (?,?,?,?,?,?,?)";
+        PatientID, VisitDate, Prescription, DoctorNotes, SuggestedExam) 
+        VALUES (?,?,?,?,?,?,?,?)";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute(['VisitID', 'DoctorID', 'ClinicID',
-        'PatientID', 'VisitDate', 'DoctorNotes', 'SuggestedExam']);
+        'PatientID', 'VisitDate', 'Prescription', 'DoctorNotes', 'SuggestedExam']);
 
     }
 
-    private function postPrescription($Prescription){
+    private function postPrescription($Prescription, $VistID){
 
-        $sql = "INSERT INTO Visit(Prescription) 
-        WHERE VisitID = ?
-        VALUES (?)";
+        $sql = "UPDATE Visit SET Prescription = ? WHERE VisitID = ?";
         $stmt = $this->connect()->prepare($sql);
-        $stmt->execute(['Prescription']);
+        $stmt->execute(['Prescription', 'VisitID']);
         
 
     }
