@@ -28,7 +28,7 @@ class AccountController extends Account{
                 exit();
             }
         }
-    }
+    } 
 
     public function logout() {
         session_start();

@@ -54,6 +54,21 @@ class Admin extends Account {
         }
     }
 
+    protected function getAccount($accountId) {
+        try{
+            $sql = "SELECT * FROM account WHERE AccountID = ?";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute([$accountId]);
+
+            $results = $stmt->fetch(); 
+            return $results;
+        }
+        catch(PDOException $e){
+            echo "Error in query 'getAccountDetails': " . $e->getMessage();
+            exit();
+        }
+    }
+
     protected function getAccounts(){
         try{
             $sql = "SELECT * FROM account";
@@ -113,6 +128,36 @@ class Admin extends Account {
         }
         catch(PDOException $e){
             echo "Error in query 'delStaff': " . $e->getMessage();
+            exit();
+        }
+    }
+
+    protected function putAccount(
+        $accountId,
+        $loginid,
+        $pword,
+        $firstName,
+        $lastName
+    ){
+        try{
+            $sql = "UPDATE account 
+                    SET 
+                        LoginID = ?,
+                        AccountPassword = ?,
+                        FirstName = ?,
+                        LastName = ?
+                    WHERE AccountID = ?";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute([        
+                $loginid,
+                $pword,
+                $firstName,
+                $lastName,
+                $accountId
+            ]);
+        }
+        catch(PDOException $e){
+            echo "Error in query 'createPatientProfile': " . $e->getMessage();
             exit();
         }
     }
