@@ -24,7 +24,7 @@ class PatientController extends Patient{
         $accountId = $this->generateGUID();
 
         //Set the account type to 'patient'
-        $accountType = "Admin";
+        $accountType = "Patient";
 
         //Hash the password
         $hashed_pass = password_hash($pword, PASSWORD_DEFAULT);
