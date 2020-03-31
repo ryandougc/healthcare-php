@@ -85,7 +85,6 @@ CREATE  TABLE EXAM (
                             REFERENCES DOCTOR (DoctorID)                                
                             ON UPDATE NO ACTION
                             ON DELETE NO ACTION
-            
     );
 
 CREATE  TABLE VISIT (

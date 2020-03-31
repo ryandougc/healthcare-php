@@ -38,7 +38,6 @@ if(isset($_POST['submit'])) {
         $accountId,
         $loginid,
         $pword,
-        $pwordMatch,
         $firstName,
         $lastName
     );
