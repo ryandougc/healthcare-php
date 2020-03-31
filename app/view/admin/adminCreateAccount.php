@@ -1,5 +1,5 @@
+<?php include '../partials/header.php'; ?>
 <body>
-
 <?php
 
 //Check if a user is logged in. Send them to the signin page if they aren't
@@ -13,9 +13,6 @@ include '../../model/admin.class.php';
 include '../../model/clinic.class.php';
 include '../../controller/admincontroller.php';
 include '../../controller/cliniccontroller.php';
-
-//Include the page header
-include '../../view/partials/header.php';
 
 //Get clinics data
 $clinic = new ClinicController();
@@ -117,7 +114,6 @@ if(isset($_POST['submit'])) {
             $patientEmailNoti = 0;
         }
 
-
         //Create patient account
         $adminInstance->createPatient(
             $loginid,
@@ -148,8 +144,9 @@ if(isset($_POST['submit'])) {
     }
 
 }
-
 ?>
+
+
 
 <!-- Create Account form -->
 <h2>Create Account</h2>
@@ -251,7 +248,7 @@ if(isset($_POST['submit'])) {
 
 </form>
 
-<?php include '../../view/partials/footer.php'; ?>
+
 
 <script>
 $('#accountTypeSelect').change(function(){
@@ -263,3 +260,5 @@ $('#accountTypeSelect').change(function(){
     $(`#${value}Form`).css("display", "inherit");
 })
 </script>
+
+<?php include '../../view/partials/footer.php'; ?>
