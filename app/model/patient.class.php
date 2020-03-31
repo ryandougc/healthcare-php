@@ -50,4 +50,17 @@ class Patient extends Account {
             exit();
         }
     }
+
+    public function patientSearchVists($VisitID){
+
+        $sql = "SELECT PatientID, VisitDate, Prescription, SuggestedExam
+        FROM VISIT 
+        WHERE VisitID = ?";
+        $stmt = $this->connect()->query($sql);
+        $stmt->execute(['VisitID']);
+        
+        $results = $stmt->fetchll();
+        return $results;
+
+    }
 }

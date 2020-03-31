@@ -1,3 +1,4 @@
+<?php include '../partials/header.php'; ?>
 <?php
 
 //Check if a user is logged in. Send them to the signin page if they aren't
@@ -11,9 +12,6 @@ include '../../model/account.class.php';
 include '../../model/admin.class.php';
 include '../../controller/accountcontroller.php';
 include '../../controller/admincontroller.php';
-
-//Include the page header
-include '../../view/partials/header.php';
 
 $accountId = filter_input(INPUT_GET, 'accountId');
 
@@ -45,23 +43,77 @@ if(isset($_POST['submit'])) {
 
 ?>
 
-<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-    <input type="hidden" name="accountId" value="<?php echo $accountId ?>">
+<div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Healthcare</h3>
+            </div>
 
-    <label for="loginIdInput">LoginID</label>
-    <input type="text" id="loginIdInput" name="loginid" value="<?php echo $accountDetails['LoginID']; ?>">
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a href="adminHomePage.php">Home</a>
+                </li>
+                <li>
+                    <a href="adminViewAccounts.php">View Accounts</a>
+                </li>
+                <li>
+                    <a href="adminCreateAccount.php">Create Account</a>
+                </li>
+                <li>
+                    <a href="adminModifyAccount.php?accountId=<?php echo $_SESSION['accID']; ?>">Own Account</a>
+                </li>
+            </ul>
+        </nav>
 
-    <label for="fNameInput">First Name</label>
-    <input type="text" id="fNameInput" name="firstName" value="<?php echo $accountDetails['FirstName']; ?>">
+        <!-- Page Content  -->
+        <div id="content">
 
-    <label for="lNameInput">Last Name</label>
-    <input type="text" id="lNameInput" name="lastName" value="<?php echo $accountDetails['LastName']; ?>">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                        </ul>
+                    </div>
+                    <a href="?action=signout">Sign Out</a>
+                </div>
+            </nav>
+            
+            <form class="form-editprofile" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                <input type="hidden" name="accountId" value="<?php echo $accountId ?>">
+                <div class="form-row">
+                <label for="loginIdInput">LoginID</label>
+                <input class="form-control" type="text" id="loginIdInput" name="loginid" value="<?php echo $accountDetails['LoginID']; ?>">
+                </div>
+                <div class="form-row">
+                <label for="fNameInput">First Name</label>
+                <input class="form-control" type="text" id="fNameInput" name="firstName" value="<?php echo $accountDetails['FirstName']; ?>">
+                </div>
+                <div class="form-row">
+                <label for="lNameInput">Last Name</label>
+                <input class="form-control" type="text" id="lNameInput" name="lastName" value="<?php echo $accountDetails['LastName']; ?>">
+                </div>
+                <div class="form-row">
+                <label for="pwordInput">Password</label>
+                <input class="form-control" type="password" id="pwordInput" name="pword">
+                </div>
+                <div class="form-row">
+                <label for="pwordMatchInput">Password Match</label>
+                <input class="form-control" type="password" id="pwordMatchInput" name="pwordMatch">
+                </div>
+                <p></p>
+                <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Update</button>
+            </form>
+            
+        </div>
+    </div>
 
-    <label for="pwordInput">Password</label>
-    <input type="password" id="pwordInput" name="pword">
 
-    <label for="pwordMatchInput">Password Match</label>
-    <input type="password" id="pwordMatchInput" name="pwordMatch">
-
-    <button type="submit" name="submit">Update</button>
-</form>
+<?php include '../../view/partials/footer.php'; ?>

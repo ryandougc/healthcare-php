@@ -38,38 +38,35 @@ class doctorModel extends Database{
 
     }
 
-    public function searchVists($VisitID){
+    public function docSearchVists($VisitID){
+
         $sql = "SELECT * FROM VISIT 
         WHERE VisitID = ?";
         $stmt = $this->connect()->query($sql);
         $stmt->execute(['VisitID']);
-        $names = $stmt->fetchll();
-
-        foreach($names as $name)
-        {
-        echo $row['ClincID'].'<br>';
-        echo $row['PatientID'].'<br>';
-        echo $row['VisitDate'].'<br>';
-        echo $row['Prescription'].'<br>';
-        echo $row['DoctorNotes'].'<br>';
-        echo $row['SuggestedExam'].'<br>';
-        }
+        
+        $results = $stmt->fetchll();
+        return $results;
 
     }
     
-    private function postVistDetails(){
+    protected function postVistDetails($VisitID, $DoctorID, $ClinicID,
+    $PatientID, $VisitDate, $Prescription, $DoctorNotes, $SuggestedExam){
 
-        //recieve data
-        //insert into database
+        $sql = "INSERT INTO Visit(VisitID, DoctorID, ClinicID,
+        PatientID, VisitDate, Prescription, DoctorNotes, SuggestedExam) 
+        VALUES (?,?,?,?,?,?,?,?)";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute(['VisitID', 'DoctorID', 'ClinicID',
+        'PatientID', 'VisitDate', 'Prescription', 'DoctorNotes', 'SuggestedExam']);
 
     }
 
-    private function postPrescription(){
+    protected function postPrescription($Prescription, $VistID){
 
-        //recieve data
-        //insert into database
-        $sql = "INSERT Prescription FROM VISIT WHERE Prescription = ?";
+        $sql = "UPDATE Visit SET Prescription = ? WHERE VisitID = ?";
         $stmt = $this->connect()->prepare($sql);
+        $stmt->execute(['Prescription', 'VisitID']);
         
 
     }
