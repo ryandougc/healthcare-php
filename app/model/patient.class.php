@@ -3,7 +3,7 @@
 class Patient extends Account {
     public function createPatientProfile($patientId, $email, $phone, $address, $city, $province, $postCode, $emailNotifications) {
         try{
-            $sql = "INSERT INTO patient(PatientID, PatientEmail, PatientPhone, PatientAddress, PatientCity, PatientProvince, PatientPostCode, EmailNotifications) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO PATIENT(PatientID, PatientEmail, PatientPhone, PatientAddress, PatientCity, PatientProvince, PatientPostCode, EmailNotifications) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
             $stmt = $this->connect()->prepare($sql);
             $stmt->execute([$patientId, $email, $phone, $address, $city, $province, $postCode, $emailNotifications]);
         }
@@ -14,7 +14,7 @@ class Patient extends Account {
     }
 
     public function getProfile($loginid){
-        $sql = "SELECT * FROM patient WHERE PatientEmail = ?";
+        $sql = "SELECT * FROM PATIENT WHERE PatientEmail = ?";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$loginid]);
 
@@ -23,7 +23,7 @@ class Patient extends Account {
     }
 
     protected function checkPatientExists($patientId) {
-        $sql = "SELECT PatientID FROM patient WHERE PatientID = ?";
+        $sql = "SELECT PatientID FROM PATIENT WHERE PatientID = ?";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$patientId]);
 
@@ -33,7 +33,7 @@ class Patient extends Account {
 
     public function putPatientProfile($patientId, $phone, $address, $city, $province, $postCode, $emailNotifications) {
         try{
-            $sql = "UPDATE patient 
+            $sql = "UPDATE PATIENT 
                     SET 
                         PatientPhone = ?,
                         PatientAddress = ?,
