@@ -1,3 +1,4 @@
+<?php include '../partials/header.php'; ?>
 <?php
 
 //Check if a user is logged in. Send them to the signin page if they aren't
@@ -11,9 +12,6 @@ include '../../model/account.class.php';
 include '../../model/admin.class.php';
 include '../../controller/accountcontroller.php';
 include '../../controller/admincontroller.php';
-
-//Include the page header
-include '../../view/partials/header.php'; 
 
 $adminController = new AdminController();
 $accountList = $adminController->getAccountList();
