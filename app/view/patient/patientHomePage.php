@@ -1,3 +1,5 @@
+<?php include '../partials/header.php'; ?>
+<body>
 <?php 
 
 //Check if a user is logged in. Send them to the signin page if they aren't
@@ -11,7 +13,18 @@ include '../../model/account.class.php';
 include '../../model/patient.class.php';
 include '../../controller/accountcontroller.php';
 include '../../controller/patientcontroller.php'; 
-include '../partials/header.php';
+
+//If a use is signed in, 
+if(isset($_SESSION['signedin'])){
+    $patient = new PatientController();
+    $patientDetails = $patient->getPatientProfile($_SESSION['loginid']);
+}
+
+//Log the user out on click
+if(isset($_GET['action']) && $_GET['action'] == "signout"){
+    $account = new AccountController();
+    $account->logout();
+}
 ?>
 
 <div class="wrapper">
@@ -22,10 +35,10 @@ include '../partials/header.php';
             </div>
 
             <ul class="list-unstyled components">
-                <li>
+                <li class="active">
                     <a href="patientHomePage.php">Home</a>
                 </li>
-                <li class="active">
+                <li>
                     <a href="viewPatientProfile.php">Profile</a>
                 </li>
                 <li>
@@ -59,9 +72,16 @@ include '../partials/header.php';
                         <ul class="nav navbar-nav ml-auto">
                         </ul>
                     </div>
+                    <a href="?action=signout">Sign Out</a>
                 </div>
             </nav>
+            <h1>Welcome <?php echo $_SESSION['firstName'] . " " . $_SESSION['lastName']; ?></h1>
 
+            <a href="viewPatientProfile.php">View your profile</a>
+            <br/>
+            <a href="editPatientProfile.php">Edit your profile</a>
+        </div>
+    </div>
 
 <?php include '../../view/partials/footer.php'; ?>
 

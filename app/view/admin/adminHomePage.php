@@ -45,12 +45,6 @@ if(isset($_GET['action']) && $_GET['action'] == "signout"){
                 <li>
                     <a href="adminModifyAccount.php?accountId=<?php echo $_SESSION['accID']; ?>">Own Account</a>
                 </li>
-                <li>
-                    <a href="">Exams</a>
-                </li>
-                <li>
-                    <a href="">Exam Results</a>
-                </li>
             </ul>
         </nav>
 
@@ -74,11 +68,8 @@ if(isset($_GET['action']) && $_GET['action'] == "signout"){
                 </div>
             </nav>
             
-            <h1>Welcome <?php echo $_SESSION['firstName'] . " " . $_SESSION['lastName']; ?></h1>
-
-            <a href="adminCreateAccount.php">Create an Account</a>
-            <br/>
-            <a href="adminviewAccounts.php">View Account List</a>
+            <h1>Welcome Admin: <?php echo $_SESSION['firstName'] . " " . $_SESSION['lastName']; ?></h1>
+            
         </div>
     </div>
 
