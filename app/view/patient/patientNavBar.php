@@ -17,7 +17,7 @@ if(isset($_GET['action']) && $_GET['action'] == "signout"){
                 <li>
                     <a href="patientHomePage.php">Home</a>
                 </li>
-                <li class="active">
+                <li>
                     <a href="viewPatientProfile.php">Profile</a>
                 </li>
                 <li>
@@ -51,6 +51,7 @@ if(isset($_GET['action']) && $_GET['action'] == "signout"){
                         <ul class="nav navbar-nav ml-auto">
                         </ul>
                     </div>
+                    <a href="?action=signout">Sign Out</a>
                 </div>
             </nav>
 
