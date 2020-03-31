@@ -171,7 +171,7 @@ INSERT INTO visit(
     'Exam'
 );*/
 
--- Dummy exam details and results
+/*-- Dummy exam details and results
 INSERT INTO exam(
     ExamID,
     PatientID,
@@ -186,4 +186,4 @@ INSERT INTO exam(
     '2020-03-30',
     'X-ray',
     'You tested positive for corona virus'
-);
+);*/
