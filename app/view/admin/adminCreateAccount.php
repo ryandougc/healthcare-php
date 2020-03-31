@@ -171,7 +171,6 @@ if(isset($_POST['submit'])) {
 
         <!-- Page Content  -->
         <div id="content">
-
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
                     <button type="button" id="sidebarCollapse" class="btn btn-info">
@@ -191,34 +190,36 @@ if(isset($_POST['submit'])) {
             
             <!-- Create Account form -->
             <h2>Create Account</h2>
-            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+            <form class="form-editprofile" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                <div class="form-row">
                 <label for="usernameInput">Login ID</label>
-                <input id="usernameInput" type="text" name="loginid">
-
+                <input class="form-control" id="usernameInput" type="text" name="loginid">
+                </div>
+                <div class="form-row">
                 <label for="firstNameInput">First Name</label>
-                <input id="firstNameInput" type="text" name="firstName">
-
+                <input class="form-control" id="firstNameInput" type="text" name="firstName">
+                </div>
+                <div class="form-row">
                 <label for="lastNameInput">Last Name</label>
-                <input id="lastNameInput" type="text" name="lastName">
-
+                <input class="form-control" id="lastNameInput" type="text" name="lastName">
+                </div>
+                <div class="form-row">
                 <label for="accountTypeSelect">Account Type</label>
-                <select id="accountTypeSelect" name="accountType">
+                <select class="form-control" id="accountTypeSelect" name="accountType">
                     <option disabled selected>Select an account type...</option>
                     <option value="Patient">Patient</option>
                     <option value="Staff">Staff</option>
                     <option value="Doctor">Doctor</option>
                     <option value="Admin">Admin</option>
                 </select>
-
-
-
+                </div>
                 <!-- Doctor Form -->
                 <div id="DoctorForm" style="display: none;">
                     <label for="doctorEmailInput">Email</label>
-                    <input id="doctorEmailInput" type="email" name="doctorEmail">
+                    <input class="form-control" id="doctorEmailInput" type="email" name="doctorEmail">
 
                     <label for="clinicSelect">Clinic</label>
-                    <select id="clinicSelect" name="doctorClinicSelect">
+                    <select class="form-control" id="clinicSelect" name="doctorClinicSelect">
                         <option disabled selected>Select a clinic...</option>
                         <!-- ...Fill in options in the clinic from database -->
                         <?php foreach($clinicList as $clinic){ 
@@ -228,14 +229,14 @@ if(isset($_POST['submit'])) {
                                 . '</option>';
                         } ?>
                     </select>
-
-                    <button type="submit" value="doctorSubmit" name="submit">Sign Up</button>
+                    <p></p>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" value="doctorSubmit" name="submit">Sign Up</button>
                 </div>
 
                 <!-- Staff Form -->
                 <div id="StaffForm" style="display: none;">
                     <label for="clinicSelect">Clinic</label>
-                    <select id="clinicSelect" name="staffClinicSelect">
+                    <select class="form-control" id="clinicSelect" name="staffClinicSelect">
                         <option disabled selected>Select a clinic...</option>
                         <!-- ...Fill in options in the clinic from database -->
                         <?php foreach($clinicList as $clinic){ 
@@ -245,31 +246,32 @@ if(isset($_POST['submit'])) {
                                 . '</option>';
                         } ?>
                     </select>
-
-                    <button type="submit" value="staffSubmit" name="submit">Sign Up</button>
+                    <p></p>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" value="staffSubmit" name="submit">Sign Up</button>
                 </div>
 
                 <!-- Patient Form -->
                 <div id="PatientForm" style="display: none;">
                     <label for="patientEmailInput">Email</label>
-                    <input id="patientEmailInput" type="email" name="patientEmail">
+                    <input class="form-control" id="patientEmailInput" type="email" name="patientEmail">
 
                     <label for="patientPhoneNumInput">Phone Number</label>
-                    <input id="patientPhoneNumInput" type="text" name="patientPhoneNum">
+                    <input class="form-control" id="patientPhoneNumInput" type="text" name="patientPhoneNum">
 
                     <label for="addresInput">Address</label>
-                    <input id="addresInput" type="text" name="patientAddress">
+                    <input class="form-control" id="addresInput" type="text" name="patientAddress">
 
                     <label for="cityInput">City</label>
-                    <input id="cityInput" type="text" name="patientCity">
+                    <input class="form-control" id="cityInput" type="text" name="patientCity">
 
                     <label for="provinceInput">Province</label>
-                    <input id="provinceInput" type="text" name="patientProvince">
+                    <input class="form-control" id="provinceInput" type="text" name="patientProvince">
 
                     <label for="postCodeInput">Postal Code</label>
-                    <input id="postCodeInput" type="text" name="patientPostCode">
+                    <input class="form-control" id="postCodeInput" type="text" name="patientPostCode">
 
                     <div>
+                    <p></p>
                         <h4>Receive Email Notifications?</h4>
 
                         <label for="emailNotifNoRadio">No</label>
@@ -278,20 +280,19 @@ if(isset($_POST['submit'])) {
                         <label for="emailNotifYesRadio">Yes</label>
                         <input id="emailNotifYesRadio" type="radio" name="patientEmailNotifications"  value="1">
                     </div> 
-
-                    <button type="submit" value="patientSubmit" name="submit">Sign Up</button>
+                    <p></p>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" value="patientSubmit" name="submit">Sign Up</button>
                 </div>
 
                 <!-- Admin Form -->
                 <div id="AdminForm" style="display: none;">
-                    <button type="submit" value="adminSubmit" name="submit">Sign Up</button>
+                <p></p>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" value="adminSubmit" name="submit">Sign Up</button>
                 </div>
             </form>
             
         </div>
     </div>
-
-
 
 <?php include '../../view/partials/footer.php'; ?>
 
