@@ -1,12 +1,15 @@
-<?php include './partials/header.php'; ?>
-<body class="bodysignin">
-
 <?php
 
+//model
 include '../model/database.class.php';
 include '../model/account.class.php';
 include '../model/patient.class.php';
+
+//controllers
 include '../controller/patientcontroller.php';
+
+//html header
+include './partials/header.php'; 
 
 if(isset($_POST['submit'])) { 
     //Get and filter inputs
@@ -71,53 +74,45 @@ if(isset($_POST['submit'])) {
 
 ?>
 
+<body class="bodysignin">
+
 <!-- Sign up form -->
-
-
 <form class="form-signin" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-<h2 class="h2 mb-3 font-weight-normal">Sign Up</h2>
+<h2 class="h2 mb-4 font-weight-normal">Sign Up</h2>
     <div class="form-row">
-    <label for="usernameInput">Email:</label>
-    <input id="usernameInput" type="text" name="loginid" class="form-control" required autofocus>
+        <input id="usernameInput" type="text" name="loginid" class="form-control" placeholder="Email" required autofocus>
     </div>
     <div class="form-row">
-    <label for="passwordInput">Password:</label>
-    <input id="passwordInput" type="password" name="pword" class="form-control" required>
+        <input id="passwordInput" type="password" name="pword" class="form-control" placeholder="Password" required>
     </div>
     <div class="form-row">
-    <label for="passwordMatchInput">Re-type Password</label>
-    <input id="passwordMatchInput" type="password" name="pwordMatch"class="form-control"required>
+        <input id="passwordMatchInput" type="password" name="pwordMatch" placeholder="Re-type Password" class="form-control" required>
     </div>
     <div class="form-row">
-    <label for="firstNameInput">First Name</label>
-    <input id="firstNameInput" type="text" name="firstName" class="form-control" required>
+        <input id="firstNameInput" type="text" name="firstName" placeholder="First Name" class="form-control" required>
     </div>
     <div class="form-row">
-    <label for="lastNameInput">Last Name</label>
-    <input id="lastNameInput" type="text" name="lastName" class="form-control" required>
+        <input id="lastNameInput" type="text" name="lastName" placeholder="Last Name" class="form-control" required>
     </div>
     <div class="form-row">
-    <label for="phoneNumInput">Phone Number</label>
-    <input id="phoneNumInput" type="text" name="phoneNum" class="form-control" required>
+        <input id="phoneNumInput" type="text" name="phoneNum" placeholder="Phone Number" class="form-control" required>
     </div>
     <div class="form-row">
-    <label for="addresInput">Address</label>
-    <input id="addresInput" type="text" name="address" class="form-control" required>
+        <input id="addresInput" type="text" name="address" placeholder="Address" class="form-control" required>
     </div>
     <div class="form-row">
-    <label for="cityInput">City</label>
-    <input id="cityInput" type="text" name="city" class="form-control" required>
+        <input id="cityInput" type="text" name="city" placeholder="City" class="form-control" required>
     </div>
     <div class="form-row">
-    <label for="provinceInput">Province</label>
-    <input id="provinceInput" type="text" name="province" class="form-control" required>
+        <input id="provinceInput" type="text" name="province" placeholder="Province" class="form-control" required>
     </div>
     <div class="form-row">
-    <label for="postCodeInput">Postal Code</label>
-    <input id="postCodeInput" type="text" name="postCode" class="form-control" required>
+        <input id="postCodeInput" type="text" name="postCode" placeholder="Postal Code" class="form-control" required>
+    </div>
 
-    <div >
-        <h4>Receive Email Notifications?</h4>
+    <br>
+    <div>
+        <h5>Receive Email Notifications?</h5>
 
         <label for="emailNotifNoRadio">No</label>
         <input id="emailNotifNoRadio" type="radio" name="emailNotifications"  value="0" checked>
@@ -125,7 +120,9 @@ if(isset($_POST['submit'])) {
         <label for="emailNotifYesRadio">Yes</label>
         <input id="emailNotifYesRadio" type="radio" name="emailNotifications"  value="1">
     </div>
-  
+    <br>
     <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Sign Up</button>
 </form>
+
+
 <?php include './partials/footer.php'; ?>
