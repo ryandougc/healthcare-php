@@ -20,6 +20,9 @@ if(isset($_GET['action']) && $_GET['action'] == "signout"){
                     <a href="doctorProfile.php">Profile</a>
                 </li>
                 <li>
+                    <a href="">Visit</a>
+                </li>
+                <li>
                     <a href="">Patient</a>
                 </li>
                 <li>
