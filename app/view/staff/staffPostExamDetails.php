@@ -20,3 +20,4 @@ include '../../controller/staffController.php';
 
 //NavBar with Logout
 include '../../view/staff/staffNavBar.php';
+
