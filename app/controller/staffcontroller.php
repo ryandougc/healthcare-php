@@ -27,4 +27,31 @@ class StaffController extends Staff{
 
     }
 
+    public function postExamDetails($PatientID, 
+    $DoctorID, 
+    $ExamDate, 
+    $ExamSubject
+    ){
+        //Put data in database
+        $this->postExamDetails($PatientID, 
+        $DoctorID, 
+        $ExamDate, 
+        $ExamSubject
+        );
+    }
+
+    public function postExamResults($PatientID, 
+    $DoctorID, 
+    $ExamDate, 
+    $ExamSubject, 
+    $ExamResults
+    ){
+        $this->postExamResults($PatientID, 
+        $DoctorID, 
+        $ExamDate, 
+        $ExamSubject, 
+        $ExamResults
+    );
+    }
+
 }

@@ -21,6 +21,5 @@ include '../../controller/staffController.php';
 //NavBar with Logout
 include '../../view/staff/staffNavBar.php';
 
-$examDetails = new StaffController();
-$examDetails->postExamDetails('','','','');
-
+$examResult = new StaffController();
+$examResult->postExamResults('','','','');

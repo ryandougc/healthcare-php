@@ -22,7 +22,7 @@ class staff extends Database{
             return $results;
         }
         catch(PDOException $e){
-            echo "Error in query 'getAccountDetails': " . $e->getMessage();
+            echo "Error in query 'getStaffAccount': " . $e->getMessage();
             exit();
         }
     }
@@ -39,7 +39,7 @@ class staff extends Database{
         return $results;
     }
     catch(PDOException $e){
-        echo "Error in query 'getAccountDetails': " . $e->getMessage();
+        echo "Error in query 'staffSearchVists': " . $e->getMessage();
         exit();
     }
     }
@@ -53,7 +53,7 @@ class staff extends Database{
         $stmt->execute(['PatientID', 'DoctorID', 'ExamDate', 'ExamSubject']);
     }
     catch(PDOException $e){
-        echo "Error in query 'getAccountDetails': " . $e->getMessage();
+        echo "Error in query 'postExamDetails': " . $e->getMessage();
         exit();
     }
     }
@@ -66,7 +66,7 @@ class staff extends Database{
         $stmt->execute(['PatientID', 'DoctorID', 'ExamDate', 'ExamSubject', 'ExamResults']);
     }
     catch(PDOException $e){
-        echo "Error in query 'getAccountDetails': " . $e->getMessage();
+        echo "Error in query 'postExamResults': " . $e->getMessage();
         exit();
     }
     }
