@@ -15,7 +15,7 @@ class staff extends Database{
 
     protected function postExamDetails($PatientID, $DoctorID, $ExamDate, $ExamSubject){
 
-        $sql = "INSERT INTO EXAM_RESULTS(PatientID, DoctorID, ExamDate, ExamSubject) 
+        $sql = "INSERT INTO EXAM(PatientID, DoctorID, ExamDate, ExamSubject) 
         VALUES (?,?,?,?)";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute(['PatientID', 'DoctorID', 'ExamDate', 'ExamSubject']);
@@ -23,7 +23,7 @@ class staff extends Database{
 
     protected function postExamResults($PatientID, $DoctorID, $ExamDate, $ExamSubject, $ExamResults){
 
-        $sql = "UPDATE EXAM_RESULTS SET ExamResults = ? WHERE PatientID = ?, DoctorID = ?, ExamDate = ?, ExamSubject = ?";
+        $sql = "UPDATE EXAM SET ExamResults = ? WHERE PatientID = ?, DoctorID = ?, ExamDate = ?, ExamSubject = ?";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute(['PatientID', 'DoctorID', 'ExamDate', 'ExamSubject', 'ExamResults']);
     }
