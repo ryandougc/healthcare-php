@@ -146,109 +146,154 @@ if(isset($_POST['submit'])) {
 }
 ?>
 
+<div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Healthcare</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a href="adminHomePage.php">Home</a>
+                </li>
+                <li>
+                    <a href="adminViewAccounts.php">View Accounts</a>
+                </li>
+                <li>
+                    <a href="adminCreateAccount.php">Create Account</a>
+                </li>
+                <li>
+                    <a href="adminModifyAccount.php?accountId=<?php echo $_SESSION['accID']; ?>">Own Account</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                        </ul>
+                    </div>
+                    <a href="?action=signout">Sign Out</a>
+                </div>
+            </nav>
+            
+            <!-- Create Account form -->
+            <h2>Create Account</h2>
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                <label for="usernameInput">Login ID</label>
+                <input id="usernameInput" type="text" name="loginid">
+
+                <label for="firstNameInput">First Name</label>
+                <input id="firstNameInput" type="text" name="firstName">
+
+                <label for="lastNameInput">Last Name</label>
+                <input id="lastNameInput" type="text" name="lastName">
+
+                <label for="accountTypeSelect">Account Type</label>
+                <select id="accountTypeSelect" name="accountType">
+                    <option disabled selected>Select an account type...</option>
+                    <option value="Patient">Patient</option>
+                    <option value="Staff">Staff</option>
+                    <option value="Doctor">Doctor</option>
+                    <option value="Admin">Admin</option>
+                </select>
 
 
-<!-- Create Account form -->
-<h2>Create Account</h2>
-<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-    <label for="usernameInput">Login ID</label>
-    <input id="usernameInput" type="text" name="loginid">
 
-    <label for="firstNameInput">First Name</label>
-    <input id="firstNameInput" type="text" name="firstName">
+                <!-- Doctor Form -->
+                <div id="DoctorForm" style="display: none;">
+                    <label for="doctorEmailInput">Email</label>
+                    <input id="doctorEmailInput" type="email" name="doctorEmail">
 
-    <label for="lastNameInput">Last Name</label>
-    <input id="lastNameInput" type="text" name="lastName">
+                    <label for="clinicSelect">Clinic</label>
+                    <select id="clinicSelect" name="doctorClinicSelect">
+                        <option disabled selected>Select a clinic...</option>
+                        <!-- ...Fill in options in the clinic from database -->
+                        <?php foreach($clinicList as $clinic){ 
+                            echo 
+                                '<option value="' . $clinic['ClinicID'] . '">' 
+                                . $clinic['ClinicAddress'] 
+                                . '</option>';
+                        } ?>
+                    </select>
 
-    <label for="accountTypeSelect">Account Type</label>
-    <select id="accountTypeSelect" name="accountType">
-        <option disabled selected>Select an account type...</option>
-        <option value="Patient">Patient</option>
-        <option value="Staff">Staff</option>
-        <option value="Doctor">Doctor</option>
-        <option value="Admin">Admin</option>
-    </select>
+                    <button type="submit" value="doctorSubmit" name="submit">Sign Up</button>
+                </div>
 
+                <!-- Staff Form -->
+                <div id="StaffForm" style="display: none;">
+                    <label for="clinicSelect">Clinic</label>
+                    <select id="clinicSelect" name="staffClinicSelect">
+                        <option disabled selected>Select a clinic...</option>
+                        <!-- ...Fill in options in the clinic from database -->
+                        <?php foreach($clinicList as $clinic){ 
+                            echo 
+                                '<option value="' . $clinic['ClinicID'] . '">' 
+                                . $clinic['ClinicAddress'] 
+                                . '</option>';
+                        } ?>
+                    </select>
 
+                    <button type="submit" value="staffSubmit" name="submit">Sign Up</button>
+                </div>
 
-    <!-- Doctor Form -->
-    <div id="DoctorForm" style="display: none;">
-        <label for="doctorEmailInput">Email</label>
-        <input id="doctorEmailInput" type="email" name="doctorEmail">
+                <!-- Patient Form -->
+                <div id="PatientForm" style="display: none;">
+                    <label for="patientEmailInput">Email</label>
+                    <input id="patientEmailInput" type="email" name="patientEmail">
 
-        <label for="clinicSelect">Clinic</label>
-        <select id="clinicSelect" name="doctorClinicSelect">
-            <option disabled selected>Select a clinic...</option>
-            <!-- ...Fill in options in the clinic from database -->
-            <?php foreach($clinicList as $clinic){ 
-                echo 
-                    '<option value="' . $clinic['ClinicID'] . '">' 
-                    . $clinic['ClinicAddress'] 
-                    . '</option>';
-            } ?>
-        </select>
+                    <label for="patientPhoneNumInput">Phone Number</label>
+                    <input id="patientPhoneNumInput" type="text" name="patientPhoneNum">
 
-        <button type="submit" value="doctorSubmit" name="submit">Sign Up</button>
+                    <label for="addresInput">Address</label>
+                    <input id="addresInput" type="text" name="patientAddress">
+
+                    <label for="cityInput">City</label>
+                    <input id="cityInput" type="text" name="patientCity">
+
+                    <label for="provinceInput">Province</label>
+                    <input id="provinceInput" type="text" name="patientProvince">
+
+                    <label for="postCodeInput">Postal Code</label>
+                    <input id="postCodeInput" type="text" name="patientPostCode">
+
+                    <div>
+                        <h4>Receive Email Notifications?</h4>
+
+                        <label for="emailNotifNoRadio">No</label>
+                        <input id="emailNotifNoRadio" type="radio" name="patientEmailNotifications"  value="0" checked>
+
+                        <label for="emailNotifYesRadio">Yes</label>
+                        <input id="emailNotifYesRadio" type="radio" name="patientEmailNotifications"  value="1">
+                    </div> 
+
+                    <button type="submit" value="patientSubmit" name="submit">Sign Up</button>
+                </div>
+
+                <!-- Admin Form -->
+                <div id="AdminForm" style="display: none;">
+                    <button type="submit" value="adminSubmit" name="submit">Sign Up</button>
+                </div>
+            </form>
+            
+        </div>
     </div>
 
-    <!-- Staff Form -->
-    <div id="StaffForm" style="display: none;">
-        <label for="clinicSelect">Clinic</label>
-        <select id="clinicSelect" name="staffClinicSelect">
-            <option disabled selected>Select a clinic...</option>
-            <!-- ...Fill in options in the clinic from database -->
-            <?php foreach($clinicList as $clinic){ 
-                echo 
-                    '<option value="' . $clinic['ClinicID'] . '">' 
-                    . $clinic['ClinicAddress'] 
-                    . '</option>';
-            } ?>
-        </select>
-
-        <button type="submit" value="staffSubmit" name="submit">Sign Up</button>
-    </div>
-
-    <!-- Patient Form -->
-    <div id="PatientForm" style="display: none;">
-        <label for="patientEmailInput">Email</label>
-        <input id="patientEmailInput" type="email" name="patientEmail">
-
-        <label for="patientPhoneNumInput">Phone Number</label>
-        <input id="patientPhoneNumInput" type="text" name="patientPhoneNum">
-
-        <label for="addresInput">Address</label>
-        <input id="addresInput" type="text" name="patientAddress">
-
-        <label for="cityInput">City</label>
-        <input id="cityInput" type="text" name="patientCity">
-
-        <label for="provinceInput">Province</label>
-        <input id="provinceInput" type="text" name="patientProvince">
-
-        <label for="postCodeInput">Postal Code</label>
-        <input id="postCodeInput" type="text" name="patientPostCode">
-
-        <div>
-            <h4>Receive Email Notifications?</h4>
-
-            <label for="emailNotifNoRadio">No</label>
-            <input id="emailNotifNoRadio" type="radio" name="patientEmailNotifications"  value="0" checked>
-
-            <label for="emailNotifYesRadio">Yes</label>
-            <input id="emailNotifYesRadio" type="radio" name="patientEmailNotifications"  value="1">
-        </div> 
-
-        <button type="submit" value="patientSubmit" name="submit">Sign Up</button>
-    </div>
-
-    <!-- Admin Form -->
-    <div id="AdminForm" style="display: none;">
-        <button type="submit" value="adminSubmit" name="submit">Sign Up</button>
-    </div>
-
-</form>
 
 
+<?php include '../../view/partials/footer.php'; ?>
 
 <script>
 $('#accountTypeSelect').change(function(){
@@ -260,5 +305,3 @@ $('#accountTypeSelect').change(function(){
     $(`#${value}Form`).css("display", "inherit");
 })
 </script>
-
-<?php include '../../view/partials/footer.php'; ?>
