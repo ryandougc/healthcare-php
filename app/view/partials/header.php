@@ -19,3 +19,4 @@
     
     <link rel="stylesheet"  href="/healthcare-php/public/css/style.css">
 </head>
+<body>

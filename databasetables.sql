@@ -69,13 +69,23 @@ CREATE  TABLE PATIENT (
     CONSTRAINT          PATIENT_PK      PRIMARY KEY (PatientID)
     );
 
-CREATE  TABLE EXAM_RESULTS (
+CREATE  TABLE EXAM (
+    ExamID              VarChar(36)     NOT NULL,
     PatientID           VarChar(36)     NOT NULL,
     DoctorID            VarChar(36)     NOT NULL,
     ExamDate            TIMESTAMP       NOT NULL,
     ExamSubject         VarChar(100)    NOT NULL,
     ExamResults         VarChar(255)    NOT NULL,
-    CONSTRAINT          PAT_DOCTOR_PK   PRIMARY KEY (PatientID, DoctorID)
+    CONSTRAINT          EXAM_PK   PRIMARY KEY (ExamID),
+    CONSTRAINT          EXAM_PATIENT_FK FOREIGN KEY (PatientID) 
+                            REFERENCES PATIENT (PatientID)                                
+                            ON UPDATE NO ACTION
+                            ON DELETE NO ACTION,
+    CONSTRAINT          EXAM_DOCTOR_FK FOREIGN KEY (DoctorID) 
+                            REFERENCES DOCTOR (DoctorID)                                
+                            ON UPDATE NO ACTION
+                            ON DELETE NO ACTION
+            
     );
 
 CREATE  TABLE VISIT (

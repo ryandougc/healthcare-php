@@ -15,13 +15,19 @@ class doctorModel extends Database{
 
     }
 
-    public function getOwnProfile(){
+    protected function getAccount($accountId) {
+        try{
+            $sql = "SELECT * FROM account WHERE AccountID = ?";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute([$accountId]);
 
-        $profile = array($this->doctorID, $this->clincID, $this->doctorEmail);
-
-
-        return $profile;
-
+            $results = $stmt->fetch(); 
+            return $results;
+        }
+        catch(PDOException $e){
+            echo "Error in query 'getAccountDetails': " . $e->getMessage();
+            exit();
+        }
     }
 
 
