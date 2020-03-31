@@ -23,11 +23,16 @@ if(isset($_GET['action']) && $_GET['action'] == "signout"){
     $account = new AccountController();
     $account->logout();
 }
-include '../../view/staff/staffNavBar.php';
-?>
 
-            <h1>Welcome Staff: <?php echo $_SESSION['firstName'] . " " . $_SESSION['lastName']; ?></h1>
-        </div>
-    </div>
+$results = $this->staffSearchVists($VisitID);
 
-<?php include '../../view/partials/footer.php'; ?>
+foreach($results as $result){
+    echo $result['VisitID'].'<br>';
+    echo $result['DoctorID'].'<br>';
+    echo $result['ClinicID'].'<br>';
+    echo $result['PatientID'].'<br>';
+    echo $result['VisitDate'].'<br>';
+    echo $result['Prescription'].'<br>';
+    echo $result['DoctorNotes'].'<br>';
+    echo $result['SuggestedExam'].'<br>';
+}

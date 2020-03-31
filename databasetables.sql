@@ -85,7 +85,6 @@ CREATE  TABLE EXAM (
                             REFERENCES DOCTOR (DoctorID)                                
                             ON UPDATE NO ACTION
                             ON DELETE NO ACTION
-            
     );
 
 CREATE  TABLE VISIT (
@@ -170,4 +169,21 @@ INSERT INTO visit(
     'test.pdf',
     'Notes',
     'Exam'
+);*/
+
+/*-- Dummy exam details and results
+INSERT INTO exam(
+    ExamID,
+    PatientID,
+    DoctorID,
+    ExamDate,
+    ExamSubject,
+    ExamResults
+) VALUES (
+    'efb735ba-c3d8-441e-98bc-1d30d614ebf2',
+    '32504486-0AC8-4431-9792-26463104119D',
+    '4BB9E2BC-4CD9-428D-AA42-C42BDE17F43E',
+    '2020-03-30',
+    'X-ray',
+    'You tested positive for corona virus'
 );*/
