@@ -1,7 +1,7 @@
 <?php
 
 class Database {
-    private $host = "localhost;port=3307";
+    private $host = "localhost";
     private $user = "dev";
     private $pwd = "healthcare";
     private $dbName = "healthcare_system";

@@ -135,7 +135,7 @@ class Admin extends Account {
     protected function putAccount(
         $accountId,
         $loginid,
-        $pword,
+        $hashed_pass,
         $firstName,
         $lastName
     ){
@@ -150,7 +150,7 @@ class Admin extends Account {
             $stmt = $this->connect()->prepare($sql);
             $stmt->execute([        
                 $loginid,
-                $pword,
+                $hashed_pass,
                 $firstName,
                 $lastName,
                 $accountId

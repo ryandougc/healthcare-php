@@ -171,7 +171,7 @@ class AdminController extends Admin{
         //Hash password
         $hashed_pass = password_hash($pword, PASSWORD_DEFAULT);
 
-        $this-> putAccount(
+        $this->putAccount(
             $accountId,
             $loginid,
             $hashed_pass,
