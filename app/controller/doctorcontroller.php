@@ -1,29 +1,33 @@
 <?php 
 
-class doctorController{
+include '../../model/doctor.class.php';
 
-    private $Array = []; 
-
-
-    public function getDoctorProfile(){
+class doctorController {
 
 
+    public function getDoctorProfile($loginID){
+
+        $doctorModel = new doctorModel();
+        $doctor = $doctorModel->getAccount($loginID);
+        return $doctor;
+
+    }
+
+    public function getEmail(){
+
+        
         $doctor = new doctorModel();
-        $doctor->getAccount();
+        $email = $doctor->getEmail();
 
-        echo $doctor;
+        return $email;
 
     
     }
 
-    public function getOwnProfile(){
+    public function updateDoctorProfile($fName, $lName, $email, $clinic){
 
-        $docModel = new doctorModel();
-
-        $docModel->getOwnProfile(); 
-
-        echo $profile;
-
+        $doctorModel = new doctorModel();
+        $doctor->updateDoctorProfile($fName, $lName, $email, $clinic);
 
     }
 
