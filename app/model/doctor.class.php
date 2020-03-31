@@ -2,24 +2,17 @@
 class doctorModel extends Database{
 
     private $doctorID;
+    private $firstName;
+    private $lastName;
     private $clinicID;
     private $doctorEmail;
 
-
-    public function intializeOwnProfile(){
-
-        //Query
-        $this->$doctorID = $tempDoctorID;
-        $this->clinicID = $tempClinicID;
-        $this->doctorEmail = $tempEmail; 
-
-    }
-
-    protected function getAccount($accountId) {
+    public function getAccount($loginID) {
         try{
+           
             $sql = "SELECT * FROM account WHERE AccountID = ?";
             $stmt = $this->connect()->prepare($sql);
-            $stmt->execute([$accountId]);
+            $stmt->execute([$loginID]);
 
             $results = $stmt->fetch(); 
             return $results;
@@ -30,11 +23,25 @@ class doctorModel extends Database{
         }
     }
 
+    protected function getDoctorProfile(){
 
-    public function retrieveDoctorProfile() {
+        $doctorID;
+        $firstName;
+        $lastName;
+        $clinicID;
+        $doctorEmail;
 
-        //Query
-        //Return data
+    }
+
+    protected function getDoctorEmail(){
+
+       $email = $this->doctorEmail;
+       return $email; 
+    }
+
+    protected function updateDoctorProfile(){
+
+
 
     }
 
