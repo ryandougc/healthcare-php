@@ -34,13 +34,13 @@ if(isset($_GET['action']) && $_GET['action'] == "signout"){
 
             <ul class="list-unstyled components">
                 <li class="active">
-                    <a href="patientHomePage.php">Home</a>
+                    <a href="stafftHomePage.php">Home</a>
                 </li>
                 <li>
-                    <a href="viewPatientProfile.php">Profile</a>
+                    <a href="viewstaffProfile.php">Profile</a>
                 </li>
                 <li>
-                    <a href="editPatientProfile.php">Change Profile</a>
+                    <a href="editstaffProfile.php">Change Profile</a>
                 </li>
                 <li>
                     <a href="">Visits</a>
