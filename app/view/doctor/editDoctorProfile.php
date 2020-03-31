@@ -1,7 +1,4 @@
-<?php include '../partials/header.php'; ?>
-<body>
 <?php
-
 //Check if a user is logged in. Send them to the signin page if they aren't
 require_once('../../includes/sessionCheck.php');
 //Only give access to doctors
@@ -12,6 +9,10 @@ include '../../model/database.class.php';
 include '../../model/account.class.php';
 include '../../model/doctor.class.php';
 include '../../controller/doctorController.php';
+
+//Header
+include '../partials/header.php';
+
 
 //Get the doctor profile data
 $doctor = new doctorController();
