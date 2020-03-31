@@ -2,47 +2,97 @@
 class doctorModel extends Database{
 
     private $doctorID;
+    private $accountID;
+    private $loginID;
     private $firstName;
     private $lastName;
     private $clinicID;
     private $doctorEmail;
 
-    public function getAccount($loginID) {
-        try{
-           
-            $sql = "SELECT * FROM account WHERE AccountID = ?";
-            $stmt = $this->connect()->prepare($sql);
-            $stmt->execute([$loginID]);
+    public function getAccount($temploginID) {
 
+        $this->loginID = $temploginID;
+
+        try{
+          
+            $sql = "SELECT * FROM ACCOUNT WHERE LoginID = ?";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute([$this->loginID]);
+            
             $results = $stmt->fetch(); 
-            return $results;
+            $this->accountID = $results['AccountID'];
+            $this->doctorID = $results['AccountID'];
+            $this->loginID = $results['LoginID'];
+            $this->firstName = $results['FirstName'];
+            $this->lastName = $results['LastName'];
+
         }
         catch(PDOException $e){
-            echo "Error in query 'getAccountDetails': " . $e->getMessage();
+            echo "Error in query 'getAccount': " . $e->getMessage();
             exit();
         }
     }
 
-    protected function getDoctorProfile(){
-
-        $doctorID;
-        $firstName;
-        $lastName;
-        $clinicID;
-        $doctorEmail;
+    public function getDoctorProfile(){
+        
+        try{
+            $sql = "SELECT * FROM DOCTOR WHERE DoctorID = ?";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute([$this->doctorID]);
+            
+            $results = $stmt->fetch(); 
+            $this->clinicID = $results['ClinicID'];
+            $this->doctorEmail = $results['DoctorEmail'];
+        }
+        catch(PDOException $e){
+            echo "Error in query 'getDoctorProfile': " . $e->getMessage();
+            exit();
+        }
 
     }
 
-    protected function getDoctorEmail(){
+    public function getDoctorName(){
 
-       $email = $this->doctorEmail;
-       return $email; 
+        $DoctorName = $this->firstName . $this->lastName; 
+        return $DoctorName; 
     }
 
-    protected function updateDoctorProfile(){
+    public function getDoctorEmail(){
+
+        return $this->doctorEmail;
+
+    }
+
+    protected function updateAccount($fName,$lname, $password){
+
+        $hashed_pass = password_hash($password, PASSWORD_DEFAULT);
+
+        try{
+            $sql = "UPDATE ACCOUNT SET AccountPassword' = ?, 'FirstName' = ?, 'LastName' = ? WHERE 'DoctorID' = ?"; 
+            $stmt = $this->connect()->query($sql);
+            $stmt->execute([$hashed_pass, $fName, $lName, $this->accountID]);
+            
+        } catch(PDOException $e){
+            echo "Error in query 'docSearchVists': " . $e->getMessage();
+            exit();
+        }
 
 
+    }
 
+    protected function updateDoctorProfile($email, $clinic){
+
+        try{
+            $sql = "UPDATE DOCTOR SET 'ClinicID' = ?, 'DoctorEmail' = ? WHERE 'DoctorID' = ?"; 
+            $stmt = $this->connect()->query($sql);
+            $stmt->execute([$clinic, $email, $this->accountID]);
+
+        } catch(PDOException $e){
+            echo "Error in query 'docSearchVists': " . $e->getMessage();
+            exit();
+        }
+
+       
     }
 
     public function docSearchVists($VisitID){

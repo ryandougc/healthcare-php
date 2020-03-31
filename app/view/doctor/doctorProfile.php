@@ -21,9 +21,9 @@ include '../../view/doctor/doctorNavBar.php';
 
 //Get the doctor profile data
 $doctorController = new doctorController();
-$results = $doctorController->getDoctorProfile($_SESSION['logind']);
-
-//$doctorEmail = $doctorProfile->getEmail();
+$loginid = $_SESSION['loginid'];
+$doctorAccount = $doctorController->getDoctorProfile($loginid);
+$email = $doctorController->getEmail($loginid);
 
 //Get clinics data
 $clinic = new ClinicController();
@@ -36,6 +36,7 @@ if(isset($_POST['update'])) {
     $fName = filter_input(INPUT_POST, 'firstName');
     $lName = filter_input(INPUT_POST, 'lastName');
     $email = filter_input(INPUT_POST, 'email');
+    $password = filter_input(INPUT_POST, 'password');
     $clinic = filter_input(INPUT_POST, 'doctorClinicSelect');
                     
     //If any input is null, reload form
@@ -49,7 +50,7 @@ if(isset($_POST['update'])) {
         exit();
     }
 
-    $doctorProfile->updateDoctorProfile($fName, $lName, $email, $clinic); 
+    $doctorProfile->updateDoctorProfile($fName, $lName, $email, $password, $clinic); 
 
 }
 
@@ -71,14 +72,13 @@ if(isset($_POST['update'])) {
                     <div class="form-row">
                         <div class="col"> 
                             <!-- Email -->
-                            <input type="email" class="form-control mb-4" name="email" placeholder=<?php echo $results["FirstName"]; ?>>
+                            <input type="email" class="form-control mb-4" name="email" placeholder= <?php echo $email;?>>
                         </div>
                         <div class="col"> 
                             <!-- Email -->
-                            <input type="password" class="form-control mb-4" name="password" placeholder="Change Password">
+                            <input type="password" class="form-control mb-4" name="password" placeholder="New Password">
                         </div>
                     </div>
-                    <?php echo $results['FirstName']; ?>
                     <!--Select a Clinic Bar -->
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">

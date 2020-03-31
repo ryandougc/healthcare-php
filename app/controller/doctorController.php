@@ -8,26 +8,26 @@ class doctorController {
     public function getDoctorProfile($loginID){
 
         $doctorModel = new doctorModel();
-        $doctor = $doctorModel->getAccount($loginID);
-        return $doctor;
-
+        $doctorModel->getAccount($loginID);
+        $doctorProfile = $doctorModel->getDoctorProfile();
+        return $doctorProfile; 
+        
     }
 
-    public function getEmail(){
+    public function getEmail($loginID){
 
-        
-        $doctor = new doctorModel();
-        $email = $doctor->getEmail();
-
-        return $email;
-
-    
+        $doctorModel = new doctorModel();
+        $doctorModel->getAccount($loginID);
+        $doctorModel->getDoctorProfile();
+        $docEmail = $doctorModel->getDoctorEmail();
+        return $docEmail;
     }
 
     public function updateDoctorProfile($fName, $lName, $email, $clinic){
 
         $doctorModel = new doctorModel();
-        $doctor->updateDoctorProfile($fName, $lName, $email, $clinic);
+        $doctor->updateAccount($fName, $lName, $password); 
+        $doctor->updateDoctorProfile($email, $clinic);
 
     }
 
