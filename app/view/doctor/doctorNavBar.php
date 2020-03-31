@@ -16,15 +16,16 @@ if(isset($_GET['action']) && $_GET['action'] == "signout"){
             <ul class="list-unstyled components">
                 <li class="active">
                     <a href="doctorHomePage.php">Home</a>
-                </li>
-                <li class="active">
-                    <a href="viewDoctorProfile.php">Profile</a>
+                <li>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Profile</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li><a href="viewDoctorProfile.php">View Profile</a></li>
+                        <li><a href="editDoctorProfile.php">Change Profile</a></li>
+                        
+                    </ul>
                 </li>
                 <li>
-                    <a href="editDoctorProfile.php">Change Profile</a>
-                </li>
-                <li>
-                    <a href="">Visits</a>
+                    <a href="">Patient</a>
                 </li>
                 <li>
                     <a href="">Exams</a>
@@ -33,32 +34,27 @@ if(isset($_GET['action']) && $_GET['action'] == "signout"){
                     <a href="">Exam Results</a>
                 </li>
             </ul>
-
         </nav>
-        
-<div id="content">
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" 
-                    type="button" 
-                    data-toggle="collapse" 
-                    data-target="#navbarSupportedContent" 
-                    aria-controls="navbarSupportedContent" 
-                    aria-expanded="false" 
-                    aria-label="Toggle navigation">
-                 <i class="fas fa-align-justify"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="nav navbar-nav ml-auto">
-                </ul>
-            </div>
-            <a href="?action=signout">Sign Out</a>
-        </div>
-    </nav>
-    
-    <?php echo $_SESSION['firstName'] . " " . $_SESSION['lastName']; ?>
+        <div id="content">
 
-    <h1>Welcome Doctor</h1>
-    </div>
-</div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                        <!--Search bar-->
+                        <form class="form-inline d-flex justify-content-center md-form form-sm mt-0" action="search.php">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                            <input class="form-control form-control-sm ml-3 w-200" type="search" placeholder="Search" aria-label="Search">
+                        </form>
+
+                        <a href="?action=signout">Sign Out</a>
+                </div>
+            </nav>
+
+
+       
+
+     
+
+
+
