@@ -21,20 +21,11 @@ include '../../view/patient/patientNavBar.php';
 ?>
             <h1 class="h2 mb-3 font-weight-normal"><strong><u>Patient Profile</u></strong></h1>
 
-            <h3>Patient Full Name:</h5>
-            <p><?php echo $_SESSION['firstName'] . " " . $_SESSION['lastName']; ?></p>
-
-            <h3>Patient Phone:</h3>
-            <p><?php echo $patientDetails['PatientPhone']; ?></p>
-
-            <h3>Patient Email:</h3>
-            <p><?php echo $patientDetails['PatientEmail']; ?></p>
-
-            <h3>Patient Address:</h3>
-            <p><?php echo $patientDetails['PatientAddress']; ?></p>
-
-            <h3>Patient Email Notifications:</h3>
-            <p><?php if($patientDetails['EmailNotifications'] == 1){ echo "True"; } else{ echo "False"; } ?></p>
+            <!--Search bar-->
+            <form class="form-inline d-flex justify-content-center md-form form-sm mt-0" action="search.php">
+                <i class="fas fa-search" aria-hidden="true"></i>
+                <input class="form-control form-control-sm ml-3 w-200" type="search" placeholder="Search" aria-label="Search">
+            </form>
         </div>
     </div>
 
