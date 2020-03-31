@@ -17,21 +17,13 @@ if(isset($_GET['action']) && $_GET['action'] == "signout"){
                 <li class="active">
                     <a href="doctorHomePage.php">Home</a>
                 <li>
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Profile</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li><a href="viewDoctorProfile.php">View Profile</a></li>
-                        <li><a href="editDoctorProfile.php">Change Profile</a></li>
-                        
-                    </ul>
+                    <a href="doctorProfile.php">Profile</a>
                 </li>
                 <li>
                     <a href="">Patient</a>
                 </li>
                 <li>
                     <a href="">Exams</a>
-                </li>
-                <li>
-                    <a href="">Exam Results</a>
                 </li>
             </ul>
         </nav>

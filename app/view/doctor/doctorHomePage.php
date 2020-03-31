@@ -4,14 +4,14 @@
 require_once('../../includes/sessionCheck.php');
 require_once('../../includes/doctorAccess.php');
 
-//Controllers and models
+//Models
 include '../../model/database.class.php';
 include '../../model/account.class.php';
-include '../../model/doctor.class.php';
-include '../../controller/accountcontroller.php';
-include '../../controller/doctorController.php';
 
-//Page header
+//Controllers
+include '../../controller/accountcontroller.php';
+
+//header
 include '../../view/partials/header.php'; 
 
 //NavBar with Logout
@@ -22,16 +22,10 @@ $name = $_SESSION['firstName'] . " " . $_SESSION['lastName'];
 
 ?>
 
-
-
 <h1>Welcome <?php echo $name?> </h1>
 
-
-
-  
     </div>
 </div>
-
 
 <?php 
 //Page footer
