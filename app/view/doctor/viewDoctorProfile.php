@@ -11,7 +11,7 @@ require_once('../../includes/doctorAccess.php');
 include '../../model/database.class.php';
 include '../../model/account.class.php';
 include '../../model/doctor.class.php';
-include '../../controller/doctorcontroller.php';
+include '../../controller/doctorController.php';
 
 //Get the Doctor profile data
 $doctor = new DoctorController();
