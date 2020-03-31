@@ -25,10 +25,10 @@ if(isset($_GET['action']) && $_GET['action'] == "signout"){
                     </ul>
                 </li>
                 <li>
-                    <a href="">Patient</a>
+                    <a href="staffPostExamDetails.php">Post Exam Details</a>
                 </li>
                 <li>
-                    <a href="">Exams</a>
+                    <a href="staffSearchVisit.php">Search Visits</a>
                 </li>
                 <li>
                     <a href="">Exam Results</a>
