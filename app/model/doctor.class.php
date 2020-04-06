@@ -38,13 +38,6 @@ class doctorModel extends Database{
 
     }
 
-    protected function getClinicInfo(){
-
-        
-
-    }
-     
-
     protected function updateAccount($fName, $lName, $password){
 
         $hashed_pass = password_hash($password, PASSWORD_DEFAULT);

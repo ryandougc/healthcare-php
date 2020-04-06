@@ -6,4 +6,11 @@ class ClinicController extends Clinic {
 
         return $clinicList;
     }
+
+    public function getClinicInfo($clinicID){
+        $clinicInfo = $this->findClinic($clinicID);
+
+        return $clinicInfo;
+        
+    }
 }

@@ -2,6 +2,7 @@
 
 include '../../model/doctor.class.php';
 
+
 class doctorController {
 
 
@@ -24,7 +25,7 @@ class doctorController {
         return $doctorAccount;
         
     }
-    
+
     public function updateDoctorProfile($loginID, $fName, $lName, $email, $password){
 
         $doctorModel = new doctorModel($loginID);

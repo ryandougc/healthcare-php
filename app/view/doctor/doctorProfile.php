@@ -21,14 +21,12 @@ include '../../view/doctor/doctorNavBar.php';
 
 //Get the doctor profile data
 $doctorController = new doctorController();
+//$clinicController = new ClinicController();
 $loginid = $_SESSION['loginid'];
 $doctorAccount = $doctorController->getDoctorAccount($loginid);
 $doctorProfile = $doctorController->getDoctorProfile($loginid);
 
-
-$clinic = new ClinicController();
-$clinicList = $clinic->getClinicList();
-
+//$clinicInfo = $clinicController->getClinicInfo($doctorProfile['ClinicID']);
 
 //On submit, do this
 if(isset($_POST['update'])) { 
