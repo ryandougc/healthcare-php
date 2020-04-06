@@ -57,7 +57,7 @@ class doctorModel extends Database{
        
     }
 
-    public function docSearchVists($VisitID){
+    public function SearchVists($VisitID){
 
 
         $sql = "SELECT * FROM VISIT 
