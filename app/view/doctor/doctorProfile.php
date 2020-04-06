@@ -22,12 +22,13 @@ include '../../view/doctor/doctorNavBar.php';
 //Get the doctor profile data
 $doctorController = new doctorController();
 $loginid = $_SESSION['loginid'];
-$doctorAccount = $doctorController->getDoctorProfile($loginid);
-$email = $doctorController->getEmail($loginid);
+$doctorAccount = $doctorController->getDoctorAccount($loginid);
+$doctorProfile = $doctorController->getDoctorProfile($loginid);
 
-//Get clinics data
+
 $clinic = new ClinicController();
 $clinicList = $clinic->getClinicList();
+
 
 //On submit, do this
 if(isset($_POST['update'])) { 
@@ -40,17 +41,25 @@ if(isset($_POST['update'])) {
     $clinic = filter_input(INPUT_POST, 'doctorClinicSelect');
                     
     //If any input is null, reload form
+    
     if(
         empty($fName) 
         || empty($lName) 
         || empty($email)
-        || empty($clinic)
+        || empty($password)
     ){
         header('location: ?message=emptyField');
         exit();
     }
+    
 
-    $doctorProfile->updateDoctorProfile($fName, $lName, $email, $password, $clinic); 
+    $doctorProfile->updateDoctorProfile(
+        $longind, 
+        $fName,
+        $lName, 
+        $email, 
+        $password
+    ); 
 
 }
 
@@ -72,7 +81,7 @@ if(isset($_POST['update'])) {
                     <div class="form-row">
                         <div class="col"> 
                             <!-- Email -->
-                            <input type="email" class="form-control mb-4" name="email" placeholder= <?php echo $email;?>>
+                            <input type="email" class="form-control mb-4" name="email" placeholder=<?php echo $doctorProfile['DoctorEmail']; ?>>
                         </div>
                         <div class="col"> 
                             <!-- Email -->
@@ -82,20 +91,13 @@ if(isset($_POST['update'])) {
                     <!--Select a Clinic Bar -->
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                            <label class="input-group-text" for="clinicSelect">Select a Clinic</label>
+                            <label class="input-group-text" for="clinicSelect"><?php echo $doctorProfile['ClinicID']; ?></label>
                         </div>
-                        <select class="custom-select" id="clinicSelect" name="doctorClinicSelect">
-                            <option disabled selected>Choose...</option>
-                            <?php 
-                            foreach($clinicList as $clinic){ 
-                                echo '<option value="' . $clinic['ClinicID'] . '">' . $clinic['ClinicAddress'] . '</option>';
-                                } 
-                            ?>
-                        </select>
                     </div>
+
                 <!-- Update button -->
                 <br>
-                <button type ="button" value="update" class="btn btn-primary btn-block" type="submit" name="update">Update</button>
+                <button type ="submit" class="btn btn-primary btn-block" type="submit" name="update">Update</button>
             </form>
         </div>
     </div>
