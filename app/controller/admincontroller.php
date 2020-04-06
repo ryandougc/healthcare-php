@@ -45,7 +45,7 @@ class AdminController extends Admin{
             $doctorClinicSelect
         );
 
-        header('location: /healthcare-php/app/view/homepage.php?message=doctorCreated');
+        header('location: /healthcare-php/app/view/admin/adminHomePage.php');
     }
 
     public function createStaff(  
