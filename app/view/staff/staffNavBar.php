@@ -40,14 +40,11 @@ if(isset($_GET['action']) && $_GET['action'] == "signout"){
 
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
-
-                        <!--Search bar-->
-                        <form class="form-inline d-flex justify-content-center md-form form-sm mt-0" action="search.php">
-                            <i class="fas fa-search" aria-hidden="true"></i>
-                            <input class="form-control form-control-sm ml-3 w-200" type="search" placeholder="Search" aria-label="Search">
-                        </form>
-
-                        <a href="?action=signout">Sign Out</a>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                        </ul>
+                    </div>
+                    <a href="?action=signout">Sign Out</a>
                 </div>
             </nav>
 
