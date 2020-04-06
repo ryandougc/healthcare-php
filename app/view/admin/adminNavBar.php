@@ -14,7 +14,7 @@ if(isset($_GET['action']) && $_GET['action'] == "signout"){
             </div>
 
             <ul class="list-unstyled components">
-                <li class="active">
+                <li>
                     <a href="adminHomePage.php">Home</a>
                 </li>
                 <li>
