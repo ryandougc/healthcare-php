@@ -17,14 +17,20 @@ include '../../controller/staffController.php';
 //$staff = new StaffController();
 //$staffDetails = $staff->getStaffProfile($_SESSION['loginid']);
 
-
-//NavBar with Logout
-include '../../view/staff/staffNavBar.php';
-
-$examResult = new StaffController();
+/*$examResult = new StaffController();
 $examResult->postExamResults(
     $PatientID,
     $DoctorID,
     $ExamDate,
     $ExamSubject,
-    $ExamResults);
+    $ExamResults);*/
+
+//NavBar with Logout
+include '../../view/staff/staffNavBar.php';
+?>
+
+            <h1>Post Exam Results</h1>
+        </div>
+    </div>
+
+<?php include '../../view/partials/footer.php'; ?>

@@ -24,9 +24,6 @@ if(isset($_GET['action']) && $_GET['action'] == "signout"){
                     <a href="editPatientProfile.php">Change Profile</a>
                 </li>
                 <li>
-                    <a href="patientVisitForm.php">Visit Form</a>
-                </li>
-                <li>
                     <a href="searchPatientVisits.php">Visits</a>
                 </li>
                 <li>

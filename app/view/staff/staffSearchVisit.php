@@ -24,9 +24,9 @@ if(isset($_GET['action']) && $_GET['action'] == "signout"){
     $account->logout();
 }
 
-$results = $this->staffSearchVists($VisitID);
+//$results = $this->staffSearchVists($VisitID);
 
-foreach($results as $result){
+/*foreach($results as $result){
     echo $result['VisitID'].'<br>';
     echo $result['DoctorID'].'<br>';
     echo $result['ClinicID'].'<br>';
@@ -35,4 +35,11 @@ foreach($results as $result){
     echo $result['Prescription'].'<br>';
     echo $result['DoctorNotes'].'<br>';
     echo $result['SuggestedExam'].'<br>';
-}
+}*/
+include '../../view/staff/staffNavBar.php';
+?>
+    <h1>Search Visits</h1>
+    </div>
+</div>
+
+<?php include '../../view/partials/footer.php'; ?>
