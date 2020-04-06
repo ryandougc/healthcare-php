@@ -26,8 +26,8 @@ $loginid = $_SESSION['loginid'];
 $doctorAccount = $doctorController->getDoctorAccount($loginid);
 $doctorProfile = $doctorController->getDoctorProfile($loginid);
 
-$clinicID = $doctorProfile['ClinicID'];
-$clinicInfo = $clinicController->getClinicInfo($clinicID);
+//$clinicID = $doctorProfile['ClinicID'];
+//$clinicInfo = $clinicController->getClinicInfo($clinicID);
 
 //On submit, do this
 if(isset($_POST['update'])) { 
@@ -90,7 +90,7 @@ if(isset($_POST['update'])) {
                     <!--Select a Clinic Bar -->
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                            <label class="input-group-text" ><?php echo $clinicInfo['ClinicAddress']; ?></label>
+                            <label class="input-group-text" ><?php echo $doctorProfile['ClinicID']; ?></label>
                         </div>
                     </div>
 

@@ -35,5 +35,14 @@ class doctorController {
 
     }
 
+    public function docSearchVists($VisitID, $loginid){
+        $doctorModel = new doctorModel($loginID);
+        $result = $doctorModel->SearchVists($VisitID);
+
+        return $result;
+
+
+    }
+
    
 }

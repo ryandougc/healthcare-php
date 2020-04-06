@@ -63,7 +63,7 @@ class doctorModel extends Database{
         $sql = "SELECT * FROM VISIT 
         WHERE VisitID = ?";
         $stmt = $this->connect()->query($sql);
-        $stmt->execute(['VisitID']);
+        $stmt->execute([$VisitID]);
     
         $results = $stmt->fetchAll();
         return $results;

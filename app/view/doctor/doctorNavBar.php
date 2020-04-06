@@ -41,6 +41,7 @@ if(isset($_GET['action']) && $_GET['action'] == "signout"){
                             <i class="fas fa-search" aria-hidden="true"></i>
                             <input class="form-control form-control-sm ml-3 w-200" type="search" placeholder="Search" aria-label="Search">
                         </form>
+                        
 
                         <a href="?action=signout">Sign Out</a>
                 </div>

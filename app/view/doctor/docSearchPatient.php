@@ -1,4 +1,11 @@
 <?php
+
+//Header
+include '../partials/header.php';
+//NavBar with Logout
+include '../../view/doctor/doctorNavBar.php';
+
+
 //Check if a user is logged in. Send them to the signin page if they aren't
 require_once('../../includes/sessionCheck.php');
 require_once('../../includes/doctorAccess.php');
@@ -11,19 +18,22 @@ include '../../model/clinic.class.php';
 
 //Controllers
 include '../../controller/accountcontroller.php';
-include '../../controller/doctorController.php';
+include '../../controller/doctorcontroller.php';
 include '../../controller/cliniccontroller.php';
 
-//Header
-include '../partials/header.php';
-//NavBar with Logout
-include '../../view/doctor/doctorNavBar.php';
 
 ?>
 
+<h1 class="h2 mb-3 font-weight-normal"><strong><u>Patient Search</u></strong></h1>
 
-
-
+            <!--Search bar-->
+            <form class="form-inline d-flex md-form form-sm mt-0" action="search.php">
+                <i class="fas fa-search" aria-hidden="true"></i>
+                <input class="form-control form-control-sm ml-3 w-200" type="search" placeholder="Search" aria-label="Search">
+                <input type="submit" class="btn btn-primary m-1" value="Search"/>
+            </form>
+        </div>
+    </div>
 
 
 
