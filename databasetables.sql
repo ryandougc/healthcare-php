@@ -169,7 +169,8 @@ INSERT INTO visit(
     'test.pdf',
     'Notes',
     'Exam'
-);*/
+);
+*/
 
 /*-- Dummy exam details and results
 INSERT INTO exam(
@@ -186,4 +187,5 @@ INSERT INTO exam(
     '2020-03-30',
     'X-ray',
     'You tested positive for corona virus'
-);*/
+);
+*/

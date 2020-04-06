@@ -6,6 +6,9 @@ class SystemController extends System{
         //get Exam results
         $exam = $this->getExamResults($examId);
 
+        //Remove all special characters except 
+        $examResults = preg_replace('/[^ \w-]/', '', $exam);
+
         //Split exam results into an array of words
         $examResults = explode(" ", $exam['ExamResults']);
 
@@ -14,8 +17,12 @@ class SystemController extends System{
             "positive", 
             "terminal",
             "corona",
+            "virus",
+            "viral",
+            "fever",
+            "pneumonia",
             "covid-19",
-            "coronavirus",
+            "corona-virus",
             "sick",
             "disease",
             "cancer",
@@ -26,24 +33,28 @@ class SystemController extends System{
             "stage 2",
             "stage 1",
             "ICU",
-            "illness"
+            "illness",
+            "testing",
         ];
 
         foreach($examResults as $word){
             if(in_array ($word, $negativeKeywords)){
-                $doctorEmail = $this->getDoctorEmail($exam['DoctorID']);
+                // $doctorEmail = $this->getDoctorEmail($exam['DoctorID']);
 
-                $emailMessage = 'A negative result was returned from an exam for one of your patients. Please click the link below to view the details. <br/>
-                                <a href="http://localhost/healthcare-php/app/view/doctor/doctorHomePage.php">Here</a>';
+                // $emailMessage = 'A negative result was returned from an exam for one of your patients. Please click the link below to view the details. <br/>
+                //                 <a href="http://localhost/healthcare-php/app/view/doctor/doctorHomePage.php">Here</a>';
 
-                $emailMessage = wordwrap($emailMessage,70);
+                // $emailMessage = wordwrap($emailMessage,70);
 
-                $headers = "From: no-reply@healthcaresystem-php.com";
+                // $headers = "From: no-reply@healthcaresystem-php.com";
 
-                mail($doctorEmail['DoctorEmail'], "Negative Exam Results", $emailMessage, $headers);
+                // mail($doctorEmail['DoctorEmail'], "Negative Exam Results", $emailMessage, $headers);
+
+                echo "Negaitve Results!";
                 exit();
             }
         }
+        echo "No Negative Results!";
 
     }
 }

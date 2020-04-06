@@ -10,9 +10,11 @@ class AdminController extends Admin{
         //Generate secure temporary password
         $pword = random_int(10000000, 99999999);
 
+        //Set the password to the string password for testing purposes
+        $pword = 'password';
+
         //Hash the password
-        // $accDetails['hashedPword'] = password_hash($pword, PASSWORD_DEFAULT);  //Figure out how to send the raw temporary password to user
-        $accDetails['hashedPword'] = $pword;
+        $accDetails['hashedPword'] = password_hash($pword, PASSWORD_DEFAULT);  //Figure out how to send the raw temporary password to user
 
         return $accDetails;
     }
@@ -158,7 +160,7 @@ class AdminController extends Admin{
 
         $this->delStaff($accountId);
 
-        header('location: adminHomePage.php?message=accountDeleted');
+        header('location: /healthcare-php/app/view/admin/adminViewAccounts.php');
     }
 
     public function updateAccount(
@@ -179,7 +181,7 @@ class AdminController extends Admin{
             $lastName
         );
 
-        header('location: adminHomePage.php');
+        header('location: /healthcare-php/app/view/admin/adminViewAccounts.php');
     }
 
 }
