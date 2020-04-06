@@ -51,16 +51,25 @@ class Patient extends Account {
         }
     }
 
-    public function patientSearchVists($VisitID){
-
-        $sql = "SELECT PatientID, VisitDate, Prescription, SuggestedExam
-        FROM VISIT 
-        WHERE VisitID = ?";
-        $stmt = $this->connect()->query($sql);
-        $stmt->execute(['VisitID']);
+    public function searchPatientVists($VisitID){
+        try{
+            $sql = "SELECT 
+                        PatientID, 
+                        VisitDate,
+                        Prescription, 
+                        SuggestedExam
+                    FROM VISIT 
+                    WHERE VisitID = ?";
+            $stmt = $this->connect()->query($sql);
+            $stmt->execute([$VisitID]);
         
-        $results = $stmt->fetchll();
-        return $results;
+            $results = $stmt->fetchll();
+            return $results;
+        }
+        catch(PDOException $e){
+            echo "Error in query 'patientSearchVists': " . $e->getMessage();
+            exit();
+        }
 
     }
 }

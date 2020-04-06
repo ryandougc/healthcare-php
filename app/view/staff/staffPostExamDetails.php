@@ -22,5 +22,9 @@ include '../../controller/staffController.php';
 include '../../view/staff/staffNavBar.php';
 
 $examDetails = new StaffController();
-$examDetails->postExamDetails('','','','');
+$examDetails->postExamDetails(
+    $PatientID,
+    $DoctorID,
+    $ExamDate,
+    $ExamSubject);
 
