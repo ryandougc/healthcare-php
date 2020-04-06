@@ -24,7 +24,7 @@ $patientDetails = $patient->getPatientProfile($_SESSION['loginid']);
 
 include '../../view/patient/patientNavBar.php';
 ?>
-            <h1 class="h2 mb-3 font-weight-normal"><strong><u>Visit Search</u></strong></h1>
+            <h1 class="h2 mb-3 font-weight-normal"><strong><u>Exam Details Search</u></strong></h1>
 
             <!--Search bar-->
             <form class="form-inline d-flex md-form form-sm mt-0" action="search.php">

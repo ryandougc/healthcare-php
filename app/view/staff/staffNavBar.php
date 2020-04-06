@@ -31,7 +31,7 @@ if(isset($_GET['action']) && $_GET['action'] == "signout"){
                     <a href="staffSearchVisit.php">Search Visits</a>
                 </li>
                 <li>
-                    <a href="">Exam Results</a>
+                    <a href="staffPostExamResults.php">Post Exam Results</a>
                 </li>
             </ul>
         </nav>

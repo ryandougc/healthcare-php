@@ -14,26 +14,17 @@ if(isset($_GET['action']) && $_GET['action'] == "signout"){
             </div>
 
             <ul class="list-unstyled components">
-                <li>
-                    <a href="patientHomePage.php">Home</a>
+                <li class="active">
+                    <a href="adminHomePage.php">Home</a>
                 </li>
                 <li>
-                    <a href="viewPatientProfile.php">Profile</a>
+                    <a href="adminViewAccounts.php">View Accounts</a>
                 </li>
                 <li>
-                    <a href="editPatientProfile.php">Change Profile</a>
+                    <a href="adminCreateAccount.php">Create Account</a>
                 </li>
                 <li>
-                    <a href="patientVisitForm.php">Visit Form</a>
-                </li>
-                <li>
-                    <a href="searchPatientVisits.php">Visits</a>
-                </li>
-                <li>
-                    <a href="searchPatientExams.php">Exams</a>
-                </li>
-                <li>
-                    <a href="searchPatientExamResults.php">Exam Results</a>
+                    <a href="adminModifyAccount.php?accountId=<?php echo $_SESSION['accID']; ?>">Own Account</a>
                 </li>
             </ul>
         </nav>
@@ -50,11 +41,3 @@ if(isset($_GET['action']) && $_GET['action'] == "signout"){
                     <a href="?action=signout">Sign Out</a>
                 </div>
             </nav>
-
-
-       
-
-     
-
-
-
