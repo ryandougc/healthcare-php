@@ -22,14 +22,14 @@ include '../../controller/staffController.php';
 include '../../view/staff/staffNavBar.php';
 
 ?>
-
-            <h1 class="h2 mb-3 font-weight-normal"><strong><u>Staff Full Name:</u></strong></h1>
+            <h1 class="h2 mb-3 font-weight-normal">Profile</h1>
+            <h3>Full Name:</h3>
             <p><?php echo $_SESSION['firstName'] . " " . $_SESSION['lastName']; ?></p>
 
-            <h3>Staff's Clinic Address:</h3>
+            <h3>Clinic Address:</h3>
             <p><?php echo $staffDetails['StaffClinicAddress']; ?></p>
 
-            <h3>Staff Phone:</h3>
+            <h3>Phone:</h3>
             <p><?php echo $staffDetails['StaffPhone']; ?></p>
         </div>
     </div>

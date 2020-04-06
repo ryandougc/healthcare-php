@@ -20,7 +20,7 @@ if(isset($_GET['action']) && $_GET['action'] == "signout"){
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Profile</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li><a href="viewStaffProfile.php">View Profile</a></li>
-                        <li><a href="editStaffProfile.php">Change Profile</a></li>
+                        <li><a href="staffChangeProfile.php">Change Profile</a></li>
                         
                     </ul>
                 </li>
