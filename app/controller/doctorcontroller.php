@@ -2,7 +2,6 @@
 
 include '../../model/doctor.class.php';
 
-
 class doctorController {
 
 
