@@ -13,6 +13,24 @@ body {
   background-color: #f5f5f5;
 }
 
+.noaccess {
+  text-align: center;
+  padding-top: 40px;
+}
+
+.noaccess a {
+  position: static;
+  top: 50%;
+  color: #3489eb;
+  font-size: 32px;
+}
+.noaccess .bottom {
+  position: fixed;
+  bottom: 20px;
+  width:100%; 
+  font-size: 16px;
+}
+
 .form-editprofile {
   width: 100%;
   max-width: 330px;
