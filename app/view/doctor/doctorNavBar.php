@@ -20,13 +20,13 @@ if(isset($_GET['action']) && $_GET['action'] == "signout"){
                     <a href="doctorProfile.php">Profile</a>
                 </li>
                 <li>
-                    <a href="">Visit</a>
+                    <a href="docSearchVisit.php">Visit</a>
                 </li>
                 <li>
-                    <a href="">Patient</a>
+                    <a href="docSearchPatient.php">Patient</a>
                 </li>
                 <li>
-                    <a href="">Exams</a>
+                    <a href="docSearchExams.php">Exams</a>
                 </li>
             </ul>
         </nav>

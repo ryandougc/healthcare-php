@@ -11,9 +11,11 @@ class Clinic extends Database {
         return $results;
     }
 
-    protected function findClinic($clinicID){
+    public function findClinic($tempclinicID){
 
-        $sql = "SELECT * FROM clinic WHERE ClinicID = ?";
+        $clinicID = $tempclinicID;
+        $sql = "SELECT clinic.ClinicID, clinic.ClinicAddress, clinic.ClinicCity, clinic.ClinicProvince, clinic.ClinicPostCode, clinic.ClinicPhone 
+                FROM clinic INNER JOIN doctor ON clinic.ClinicID=?" ;
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$clinicID]);
 
