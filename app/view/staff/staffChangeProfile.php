@@ -1,7 +1,7 @@
 <?php include '../partials/header.php'; ?>
 <body>
 <?php
-include '../../view/patient/patientNavBar.php';
+include '../../view/staff/staffNavBar.php';
 ?>
             <!-- Sign up form 
             <h2>Update Staff Profile</h2>
