@@ -8,39 +8,44 @@ class doctorController {
 
     public function getDoctorProfile($loginID){
 
-        $doctorModel = new doctorModel($loginID);
-        $doctorModel->getAccount();
+        $doctorModel = new doctorModel();
+        $doctorModel->getAccount($loginID);
         $doctorProfile = $doctorModel->getProfile();
 
         return $doctorProfile;
-
         
     }
 
     public function getDoctorAccount($loginID){
 
-        $doctorModel = new doctorModel($loginID);
-        $doctorAccount = $doctorModel->getAccount();
+        $doctorModel = new doctorModel();
+        $doctorAccount = $doctorModel->getAccount($loginID);
 
         return $doctorAccount;
         
     }
 
-    public function updateDoctorProfile($loginID, $fName, $lName, $email, $password){
+    public function updateDoctorProfile($email){
 
-        $doctorModel = new doctorModel($loginID);
-        $doctorModel->updateAccount($fName, $lName, $password); 
+        $doctorModel = new doctorModel();
         $doctorModel->updateProfile($email);
-        header('location: ?message=updated');
 
     }
 
+    public function updateDoctorAccount($fName, $lName, $password){
+
+        $doctorModel = new doctorModel();
+        $doctorModel->getAccount($loginID);
+        $doctorModel->updateAccount($fName, $lName, $password); 
+
+    }
+
+
     public function docSearchVists($VisitID, $loginid){
-        $doctorModel = new doctorModel($loginID);
-        $result = $doctorModel->SearchVists($VisitID);
+        $doctorModel = new doctorModel();
+        $result = $doctorModel->SearchVists($VisitID, $loginid);
 
         return $result;
-
 
     }
 

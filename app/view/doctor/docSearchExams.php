@@ -44,7 +44,7 @@ if(isset($_POST['search'])) {
 
 <h1 class="h2 mb-3 font-weight-normal"><strong><u>Exam Search</u></strong></h1>
 <!--Search bar-->
-<form class="form-inline d-flex md-form form-sm mt-0" action="#!">
+<form class="form-inline d-flex md-form form-sm mt-0" action="#!" method="post">
                 <i class="fas fa-search" aria-hidden="true"></i>
                 <input class="form-control form-control-sm ml-3 w-200" type="search" name="search" placeholder="Search" aria-label="Search">
                 <input type="submit" class="btn btn-primary m-1" name="search"/>

@@ -1,19 +1,14 @@
 <?php
 class doctorModel extends Database{
 
-    private $loginID;
+    public $loginID;
     private $doctorID;
     private $accountID;
 
 
-    public function __construct($temploginID){
+    public function getAccount($temploginID) {
 
-        $this->loginID = $temploginID;
-
-    }
-
-    public function getAccount() {
-
+            $this->loginID = $temploginID;
             $sql = "SELECT * FROM ACCOUNT WHERE LoginID = ?";
             $stmt = $this->connect()->prepare($sql);
             $stmt->execute([$this->loginID]);
@@ -22,13 +17,12 @@ class doctorModel extends Database{
             $this->doctorID = $results['AccountID'];
             $this->accountID = $results['AccountID'];
             return $results;
-
+        
        
     }
 
     public function getProfile(){
         
-
             $sql = "SELECT * FROM DOCTOR WHERE DoctorID = ?";
             $stmt = $this->connect()->prepare($sql);
             $stmt->execute([$this->doctorID]);
@@ -38,22 +32,24 @@ class doctorModel extends Database{
 
     }
 
-    protected function updateAccount($fName, $lName, $password){
+    public function updateAccount($fName, $lName, $password){
 
         $hashed_pass = password_hash($password, PASSWORD_DEFAULT);
 
         
-            $sql = "UPDATE ACCOUNT SET AccountPassword' = ?, 'FirstName' = ?, 'LastName' = ? WHERE 'DoctorID' = ?"; 
+            $sql = "UPDATE ACCOUNT SET AccountPassword=?, FirstName=?, LastName=? WHERE AccountID=?"; 
             $stmt = $this->connect()->query($sql);
             $stmt->execute([$hashed_pass, $fName, $lName, $this->accountID]);
             
     }
 
-    protected function updateProfile($email){
+    public function updateProfile($email){
 
-            $sql = "UPDATE DOCTOR SET 'DoctorEmail' = ? WHERE 'DoctorID' = ?"; 
+            $sql = "UPDATE DOCTOR SET DoctorEmail=? WHERE DoctorID=?"; 
             $stmt = $this->connect()->query($sql);
-            $stmt->execute([$email, $this->accountID]);
+            $stmt->execute([$email, $this->doctorID]);
+            header ('location: ?message=updated' );
+           
        
     }
 

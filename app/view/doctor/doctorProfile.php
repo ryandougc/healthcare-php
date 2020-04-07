@@ -6,13 +6,12 @@ require_once('../../includes/doctorAccess.php');
 //Models
 include '../../model/database.class.php';
 include '../../model/account.class.php';
-include '../../model/clinic.class.php';
 
 
 //Controllers
 include '../../controller/accountcontroller.php';
-include '../../controller/doctorController.php';
-include '../../controller/cliniccontroller.php';
+include '../../controller/doctorcontroller.php';
+
 
 //Header
 include '../partials/header.php';
@@ -30,51 +29,53 @@ $doctorProfile = $doctorController->getDoctorProfile($loginid);
 //$clinicInfo = $clinicController->getClinicInfo($clinicID);
 
 //On submit, do this
-if(isset($_POST['update'])) { 
+if(isset($_POST['update'])) {
 
     //Get and filter inputs
     $fName = filter_input(INPUT_POST, 'firstName');
     $lName = filter_input(INPUT_POST, 'lastName');
     $email = filter_input(INPUT_POST, 'email');
     $password = filter_input(INPUT_POST, 'password');
-    $clinic = filter_input(INPUT_POST, 'doctorClinicSelect');
+
                     
     //If any input is null, reload form
     
     if(
         empty($fName) 
         || empty($lName) 
-        || empty($email)
+        //|| empty($email)
         || empty($password)
     ){
         header('location: ?message=emptyField');
         exit();
+    } else{
+
+       // $doctorProfile->updateDoctorProfile($email);
+
+        $doctorAccount->updateDoctorAccount(
+            $fName,
+            $lName,
+            $password
+        );
     }
     
 
-    $doctorProfile->updateDoctorProfile(
-        $longind, 
-        $fName,
-        $lName, 
-        $email, 
-        $password
-    ); 
 
 }
 
 ?>
 
         <div class="container"> 
-            <form class="text-center border border-light p-5" action="#!">
+            <form class="text-center border border-light p-5" action="#!" method="post">
                 <h2 class="h2 mb-4 font-weight-normal">Update Profile</h2>
                     <div class="form-row">
                         <div class="col">
                             <!-- First Name -->
-                            <input type="text" class="form-control mb-4" name="firstName" placeholder=<?php echo $_SESSION['firstName']; ?>>  
+                            <input type="text" class="form-control mb-4" name="firstName" placeholder=<?php echo $doctorAccount['FirstName']; ?>>  
                         </div>
                             <!-- Last Name -->
                         <div class="col"> 
-                            <input type="text" class="form-control mb-4" name="lastName" placeholder=<?php echo $_SESSION['lastName']; ?>>
+                            <input type="text" class="form-control mb-4" name="lastName" placeholder=<?php echo $doctorAccount['LastName']; ?>>
                         </div>
                     </div>
                     <div class="form-row">

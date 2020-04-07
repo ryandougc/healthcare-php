@@ -18,7 +18,7 @@ class Patient extends Account {
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$loginid]);
 
-        $results = $stmt->fetch(); 
+        $results = $stmt->fetchAll(); 
         return $results;
     }
 
